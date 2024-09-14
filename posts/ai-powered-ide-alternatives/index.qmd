@@ -1,0 +1,48 @@
+---
+title: "AI Powered IDE Alternatives"
+author:
+  - name: Phlo
+    url: https://twitter.com/YoungPhlo_
+  - name: Yikes
+    url: https://twitter.com/yikesawjeez
+date: "2024-09-13"
+categories: [code, IDE]
+image: "ai-powered-ides-pearai.jpg"
+---
+# AI In Action | 2024 Week 37
+
+This week's meeting is a discussion about AI-powered IDEs and related tools, featuring three participants: KBall, Phlo, and Yikes.
+
+## Initial Setup and Discussion:
+
+* Phlo compares Pear AI (a Cursor alternative) to Cursor, finding it similar but lacking features like Cursor's "Composer" mode and advanced autocomplete.
+* The discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations. 
+* They express excitement about OpenAI's new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.
+
+## Pear AI Demo:
+
+* Phlo demonstrates Pear AI, highlighting its VS Code fork nature and features like a larger chat window button. 
+* He attempts to use Pear AI to translate a shell script into Python, comparing the experience to Cursor.
+* The discussion revolves around Pear AI's strengths and weaknesses compared to Cursor, with Cursor's "Composer" mode and Cursor's proprietary models emerging as a significant differentiator.
+
+## NeoVim and Composer Discussion:
+
+* The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.
+* Yikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.
+* They discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.
+
+## Composer Demo:
+
+* Phlo showcases Cursor's "Composer" mode using a website redesign project. He demonstrates how to:
+    * Use "Control-K" for in-file code edits based on prompts.
+    * Use "Control-L" for chat-based interactions with the model to refine code.
+    * Use "Control-I" for multi-file edits or creating new files with Composer mode.
+* They discuss Composer's ability to handle multi-file edits and the importance of providing context for larger code bases.
+
+## Open Source Alternatives and Conclusion:
+
+* Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.
+* The participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others' experiences and discovering new tools.
+* The session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.
+
+We enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation.
