@@ -6,15 +6,14 @@ website:
   title: "Latent Space Notes"
   navbar:
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/latentspacenotes
       - icon: twitter
         href: https://twitter.com/latentspacepod
+  site-url: https://latentspacenotes.github.io
+  twitter-card: true
+  open-graph: false
 format:
   html:
     theme: flatly
     css: styles.css
-
-
-
