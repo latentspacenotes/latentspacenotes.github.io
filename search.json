@@ -1,10 +1,52 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html",
+    "href": "posts/ai-powered-ide-alternatives/index.html",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "This week’s meeting is a discussion about AI-powered IDEs and related tools, featuring three participants: KBall, Phlo, and Yikes.\n\n\n\nPhlo compares Pear AI (a Cursor alternative) to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates Pear AI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use Pear AI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around Pear AI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "title": "AI Powered IDE Alternatives",
+    "section": "",
+    "text": "Phlo compares Pear AI (a Cursor alternative) to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#pear-ai-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#pear-ai-demo",
+    "title": "AI Powered IDE Alternatives",
+    "section": "",
+    "text": "Phlo demonstrates Pear AI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use Pear AI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around Pear AI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "title": "AI Powered IDE Alternatives",
+    "section": "",
+    "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "title": "AI Powered IDE Alternatives",
+    "section": "",
+    "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "title": "AI Powered IDE Alternatives",
+    "section": "",
+    "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "AI Powered IDE Alternatives\n\n\n\n\n\n\ncode\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -12,19 +54,5 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "latentspacenotes",
-    "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nSep 10, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
   }
 ]
