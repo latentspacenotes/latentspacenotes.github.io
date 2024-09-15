@@ -1,5 +1,6 @@
 ---
 title: "AI Powered IDE Alternatives"
+abstract: "Weekly AI In Action meeting notes. AI-powered IDEs and related tools, including PearAI, Cursor, Zed, and Open Source Alternatives."
 author:
   - name: Phlo
     url: https://twitter.com/YoungPhlo_
