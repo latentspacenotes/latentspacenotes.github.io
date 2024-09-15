@@ -1,6 +1,5 @@
 ---
 title: "AI Powered IDE Alternatives"
-description-meta: "Weekly AI In Action meeting notes. AI-powered IDEs and related tools, including PearAI, Cursor, Zed, and Open Source Alternatives."
 author:
   - name: Phlo
     url: https://twitter.com/YoungPhlo_
@@ -10,6 +9,8 @@ date: "2024-09-13"
 date-modified: last-modified
 categories: [code, IDE]
 image: "ai-powered-ides-pearai.jpg"
+description-meta: "AI-powered IDEs and related tools, including PearAI, Cursor, Zed, and Open Source Alternatives. Weekly AI In Action meeting notes."
+card-style: "summary"
 toc: true
 ---
 # AI In Action | 2024 Week 37
