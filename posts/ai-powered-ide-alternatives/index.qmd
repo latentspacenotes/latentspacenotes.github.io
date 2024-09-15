@@ -6,6 +6,7 @@ author:
   - name: Yikes
     url: https://twitter.com/yikesawjeez
 date: "2024-09-13"
+date-modified: last-modified
 categories: [code, IDE]
 image: "ai-powered-ides-pearai.jpg"
 toc: true
