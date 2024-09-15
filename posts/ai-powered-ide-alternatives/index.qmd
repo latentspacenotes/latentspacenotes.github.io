@@ -8,6 +8,7 @@ author:
 date: "2024-09-13"
 categories: [code, IDE]
 image: "ai-powered-ides-pearai.jpg"
+toc: true
 ---
 # AI In Action | 2024 Week 37
 
