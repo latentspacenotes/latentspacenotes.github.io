@@ -12,7 +12,7 @@ website:
         href: https://twitter.com/latentspacepod
   site-url: https://latentspacenotes.github.io
   twitter-card: true
-  open-graph: false
+  open-graph: true
 format:
   html:
     theme: flatly
