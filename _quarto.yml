@@ -15,5 +15,7 @@ website:
   open-graph: true
 format:
   html:
-    theme: flatly
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
