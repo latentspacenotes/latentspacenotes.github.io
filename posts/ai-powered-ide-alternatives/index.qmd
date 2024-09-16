@@ -7,7 +7,7 @@ author:
     url: https://twitter.com/yikesawjeez
 date: "2024-09-13"
 date-modified: last-modified
-categories: [code, IDE]
+categories: [AI In Action, Dev Tools, IDE]
 image: "ai-powered-ides-pearai.jpg"
 description-meta: "AI-powered IDEs and related tools, including PearAI, Cursor, Zed, and Open Source Alternatives. Weekly AI In Action meeting notes."
 card-style: "summary"
