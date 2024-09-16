@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Slono">
+<meta name="dcterms.date" content="2024-09-06">
+<meta name="description" content="Review of Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.">
 
-<title>Posts – Latent Space Notes</title>
+<title>Langflow: A Visual LLM Tool – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,71 +71,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Posts – Latent Space Notes">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Langflow: A Visual LLM Tool – Latent Space Notes">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="Posts – Latent Space Notes">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Langflow: A Visual LLM Tool – Latent Space Notes">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -144,7 +91,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Latent Space Notes</span>
     </a>
   </div>
@@ -175,122 +122,103 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Posts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Langflow: A Visual LLM Tool</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">AI In Action</div>
+                <div class="quarto-category">Dev Tools</div>
+                <div class="quarto-category">LLMs</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://twitter.com/ProgramWithAi">Slono</a> </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 6, 2024</p>
+      </div>
+    </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">September 16, 2024</p>
+      </div>
+    </div>
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="AI In Action">AI In Action <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Dev Tools">Dev Tools <span class="quarto-category-count">(2)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ai-in-action-2024-week-36" id="toc-ai-in-action-2024-week-36" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-36">AI In Action | 2024 Week 36</a>
+  <ul class="collapse">
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="ai-in-action-2024-week-36" class="level1">
+<h1>AI In Action | 2024 Week 36</h1>
+<p>This week’s meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.</p>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Langflow can be a powerful tool for rapid prototyping of LLM applications.</li>
+<li>Visual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.</li>
+<li>AI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.</li>
+<li>Building custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.</li>
+<li>Writing clear, informative Git commits and code comments is crucial for facilitating AI understanding.</li>
+<li>The field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.</li>
+</ul>
+</section>
+<section id="qa" class="level2">
+<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
+<p>During the Q&amp;A, the audience asks about:</p>
+<ul>
+<li><strong>The use of Sonnet 3.5 for zero-shot PR messages:</strong> Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.</li>
+<li><strong>The future of Cursor as an AI IDE:</strong> Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.</li>
+<li><strong>Cursor’s custom models:</strong> It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.</li>
+<li><strong>Generating diffs with LLMs:</strong> Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.</li>
+</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.</p>
+<p>Slono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.</p>
+<p>The presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.</p>
+<p>The meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="AI In Action,Dev Tools,IDE" data-listing-date-sort="1726185600000" data-listing-file-modified-sort="1726515293070" data-listing-date-modified-sort="1726515293000" data-listing-reading-time-sort="2" data-listing-word-count-sort="351">
-<div class="thumbnail">
-<p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ai-powered-ide-alternatives/ai-powered-ides-pearai.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">AI Powered IDE Alternatives</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">This week’s meeting is a discussion about AI-powered IDEs and related tools, featuring three participants: KBall, Phlo, and Yikes.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<div class="listing-date">
-Sep 13, 2024
-</div>
-<div class="listing-author">
-Phlo , Yikes
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="AI In Action,Dev Tools,LLMs" data-listing-date-sort="1725580800000" data-listing-file-modified-sort="1726515293070" data-listing-date-modified-sort="1726515293000" data-listing-reading-time-sort="3" data-listing-word-count-sort="468">
-<div class="thumbnail">
-<p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">Langflow: A Visual LLM Tool</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">This week’s meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2024
-</div>
-<div class="listing-author">
-Slono
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
