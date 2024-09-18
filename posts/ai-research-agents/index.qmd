@@ -1,0 +1,65 @@
+---
+title: "AI Research Agents: Storm, Scientist, and GPTR"
+author:
+  - name: Yikes
+    url: https://twitter.com/yikesawjeez
+  - name: Frikster
+date: "2024-08-30"
+date-modified: last-modified
+categories: [AI In Action, Agents]
+image: "ai-agents-research-lab.jpg"
+description-meta: "AI Research Agents: Sakana's AI Scientist, Stanford Oval's Storm, and GPT Researcher, are unique in their ability to generate research ideas and execute experiments, analyze results, and even draft research papers."
+card-style: "summary"
+toc: true
+---
+# AI In Action | 2024 Week 35
+
+This week's AI In Action club is focused on **AI research agents**, specifically three tools.
+
+{{< video https://www.youtube.com/watch?v=uugW_MogN3M >}}
+
+## Key Takeaways
+
+* AI research agents are evolving rapidly but still require human oversight and critical evaluation.
+* They can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.
+* Domain expertise remains crucial for effectively leveraging these tools and filtering their output. 
+
+## 1. Sakana's AI Scientist 
+-  This agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.
+- Yikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.
+-  It utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources. 
+-  It's considered the most complex of the three agents discussed.
+
+## 2. Stanford Oval's Storm
+- Designed for Wikipedia-style writing, Storm uses a two-stage approach: 
+    - **Pre-writing:** Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as "perspective-guided question asking."
+    - **Writing:** A separate agent then uses the outline to write the full article.
+- It's implemented in LangChain and is modular, allowing for customization.
+-  Yikes prefers Storm's inline citations, similar to Wikipedia, but noted that the links are often inaccurate.
+
+## 3. GPT Researcher (GPTR)
+- Similar to Storm, GPTR also has two agents: 
+    - **Planner:** Formulates research questions.
+    - **Researcher:** Accesses the web based on the planner's questions and synthesizes the information into a report.
+-  It focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.
+-  GPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention.
+
+## Comparison
+
+- Both Storm and GPTR have distinct research and writing phases, utilizing multiple agents.
+- Storm's pre-writing phase involves a more interactive and iterative process between agents, while GPTR's planner simply generates questions.
+-  AI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information.
+
+## Demo
+
+- Yikes demonstrated using GPTR and Storm to research community ambassador programs.
+- He highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.
+- He showcased the Obsidian plugin "Smart Connections" to help cross-reference information and manage context while working with the generated reports.
+
+## Conclusion
+
+-  The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:
+    - Quickly gaining a shallow understanding of a new topic.
+    - Brainstorming and exploring new ideas in a familiar domain.
+    - Discovering overlooked information or research avenues.
+- They emphasized the importance of treating the output as a "drunk intern's work," requiring careful review and verification.
