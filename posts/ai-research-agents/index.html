@@ -6,11 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Slono">
-<meta name="dcterms.date" content="2024-09-06">
-<meta name="description" content="Review of Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.">
+<meta name="author" content="Yikes">
+<meta name="author" content="Frikster">
+<meta name="dcterms.date" content="2024-08-30">
+<meta name="description" content="AI Research Agents: Sakana’s AI Scientist, Stanford Oval’s Storm, and GPT Researcher, are unique in their ability to generate research ideas and execute experiments, analyze results, and even draft research papers.">
 
-<title>Langflow: A Visual LLM Tool – Latent Space Notes</title>
+<title>AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,13 +75,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Langflow: A Visual LLM Tool – Latent Space Notes">
+<meta property="og:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://latentspacenotes.github.io/posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="Langflow: A Visual LLM Tool – Latent Space Notes">
+<meta name="twitter:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -123,11 +124,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Langflow: A Visual LLM Tool</h1>
+      <h1 class="title">AI Research Agents: Storm, Scientist, and GPTR</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">AI In Action</div>
-                <div class="quarto-category">Dev Tools</div>
-                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Agents</div>
               </div>
                   </div>
   </div>
@@ -136,16 +136,17 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-heading">Authors</div>
       <div class="quarto-title-meta-contents">
-               <p><a href="https://twitter.com/ProgramWithAi">Slono</a> </p>
+               <p><a href="https://twitter.com/yikesawjeez">Yikes</a> </p>
+               <p>Frikster </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 6, 2024</p>
+        <p class="date">August 30, 2024</p>
       </div>
     </div>
     
@@ -167,11 +168,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ai-in-action-2024-week-36" id="toc-ai-in-action-2024-week-36" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-36">AI In Action | 2024 Week 36</a>
+  <li><a href="#ai-in-action-2024-week-35" id="toc-ai-in-action-2024-week-35" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-35">AI In Action | 2024 Week 35</a>
   <ul class="collapse">
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
-  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#sakanas-ai-scientist" id="toc-sakanas-ai-scientist" class="nav-link" data-scroll-target="#sakanas-ai-scientist">1. Sakana’s AI Scientist</a></li>
+  <li><a href="#stanford-ovals-storm" id="toc-stanford-ovals-storm" class="nav-link" data-scroll-target="#stanford-ovals-storm">2. Stanford Oval’s Storm</a></li>
+  <li><a href="#gpt-researcher-gptr" id="toc-gpt-researcher-gptr" class="nav-link" data-scroll-target="#gpt-researcher-gptr">3. GPT Researcher (GPTR)</a></li>
+  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
+  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -183,37 +188,78 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="ai-in-action-2024-week-36" class="level1">
-<h1>AI In Action | 2024 Week 36</h1>
-<p>This week’s meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UdB50GZfn5A" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="ai-in-action-2024-week-35" class="level1">
+<h1>AI In Action | 2024 Week 35</h1>
+<p>This week’s AI In Action club is focused on <strong>AI research agents</strong>, specifically three tools.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uugW_MogN3M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Langflow can be a powerful tool for rapid prototyping of LLM applications.</li>
-<li>Visual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.</li>
-<li>AI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.</li>
-<li>Building custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.</li>
-<li>Writing clear, informative Git commits and code comments is crucial for facilitating AI understanding.</li>
-<li>The field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.</li>
+<li>AI research agents are evolving rapidly but still require human oversight and critical evaluation.</li>
+<li>They can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.</li>
+<li>Domain expertise remains crucial for effectively leveraging these tools and filtering their output.</li>
 </ul>
 </section>
-<section id="qa" class="level2">
-<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
-<p>During the Q&amp;A, the audience asks about:</p>
+<section id="sakanas-ai-scientist" class="level2">
+<h2 class="anchored" data-anchor-id="sakanas-ai-scientist">1. Sakana’s AI Scientist</h2>
 <ul>
-<li><strong>The use of Sonnet 3.5 for zero-shot PR messages:</strong> Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.</li>
-<li><strong>The future of Cursor as an AI IDE:</strong> Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.</li>
-<li><strong>Cursor’s custom models:</strong> It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.</li>
-<li><strong>Generating diffs with LLMs:</strong> Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.</li>
+<li>This agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.</li>
+<li>Yikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.</li>
+<li>It utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources.</li>
+<li>It’s considered the most complex of the three agents discussed.</li>
 </ul>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.</p>
-<p>Slono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.</p>
-<p>The presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.</p>
-<p>The meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs.</p>
+<section id="stanford-ovals-storm" class="level2">
+<h2 class="anchored" data-anchor-id="stanford-ovals-storm">2. Stanford Oval’s Storm</h2>
+<ul>
+<li>Designed for Wikipedia-style writing, Storm uses a two-stage approach:
+<ul>
+<li><strong>Pre-writing:</strong> Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as “perspective-guided question asking.”</li>
+<li><strong>Writing:</strong> A separate agent then uses the outline to write the full article.</li>
+</ul></li>
+<li>It’s implemented in LangChain and is modular, allowing for customization.</li>
+<li>Yikes prefers Storm’s inline citations, similar to Wikipedia, but noted that the links are often inaccurate.</li>
+</ul>
+</section>
+<section id="gpt-researcher-gptr" class="level2">
+<h2 class="anchored" data-anchor-id="gpt-researcher-gptr">3. GPT Researcher (GPTR)</h2>
+<ul>
+<li>Similar to Storm, GPTR also has two agents:
+<ul>
+<li><strong>Planner:</strong> Formulates research questions.</li>
+<li><strong>Researcher:</strong> Accesses the web based on the planner’s questions and synthesizes the information into a report.</li>
+</ul></li>
+<li>It focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.</li>
+<li>GPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention.</li>
+</ul>
+</section>
+<section id="comparison" class="level2">
+<h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
+<ul>
+<li>Both Storm and GPTR have distinct research and writing phases, utilizing multiple agents.</li>
+<li>Storm’s pre-writing phase involves a more interactive and iterative process between agents, while GPTR’s planner simply generates questions.</li>
+<li>AI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information.</li>
+</ul>
+</section>
+<section id="demo" class="level2">
+<h2 class="anchored" data-anchor-id="demo">Demo</h2>
+<ul>
+<li>Yikes demonstrated using GPTR and Storm to research community ambassador programs.</li>
+<li>He highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.</li>
+<li>He showcased the Obsidian plugin “Smart Connections” to help cross-reference information and manage context while working with the generated reports.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<ul>
+<li>The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:
+<ul>
+<li>Quickly gaining a shallow understanding of a new topic.</li>
+<li>Brainstorming and exploring new ideas in a familiar domain.</li>
+<li>Discovering overlooked information or research avenues.</li>
+</ul></li>
+<li>They emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification.</li>
+</ul>
 
 
 </section>

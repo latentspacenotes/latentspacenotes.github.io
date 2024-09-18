@@ -1,45 +1,10 @@
 [
   {
-    "objectID": "posts/langflow-visual-llm-tool/index.html",
-    "href": "posts/langflow-visual-llm-tool/index.html",
-    "title": "Langflow: A Visual LLM Tool",
-    "section": "",
-    "text": "This week’s meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.\n\n\n\nLangflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.\n\n\n\n\nDuring the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.\n\n\n\n\nSlono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
-  },
-  {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
-    "href": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
-    "title": "Langflow: A Visual LLM Tool",
-    "section": "",
-    "text": "Langflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly."
-  },
-  {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#qa",
-    "href": "posts/langflow-visual-llm-tool/index.html#qa",
-    "title": "Langflow: A Visual LLM Tool",
-    "section": "",
-    "text": "During the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks."
-  },
-  {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#summary",
-    "href": "posts/langflow-visual-llm-tool/index.html#summary",
-    "title": "Langflow: A Visual LLM Tool",
-    "section": "",
-    "text": "Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this blog"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Posts",
-    "section": "",
-    "text": "AI Powered IDE Alternatives\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html",
@@ -82,5 +47,96 @@
     "title": "AI Powered IDE Alternatives",
     "section": "",
     "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "AI Powered IDE Alternatives\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html",
+    "href": "posts/ai-research-agents/index.html",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "This week’s AI In Action club is focused on AI research agents, specifically three tools.\n\n\n\n\nAI research agents are evolving rapidly but still require human oversight and critical evaluation.\nThey can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.\nDomain expertise remains crucial for effectively leveraging these tools and filtering their output.\n\n\n\n\n\nThis agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.\nYikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.\nIt utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources.\nIt’s considered the most complex of the three agents discussed.\n\n\n\n\n\nDesigned for Wikipedia-style writing, Storm uses a two-stage approach:\n\nPre-writing: Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as “perspective-guided question asking.”\nWriting: A separate agent then uses the outline to write the full article.\n\nIt’s implemented in LangChain and is modular, allowing for customization.\nYikes prefers Storm’s inline citations, similar to Wikipedia, but noted that the links are often inaccurate.\n\n\n\n\n\nSimilar to Storm, GPTR also has two agents:\n\nPlanner: Formulates research questions.\nResearcher: Accesses the web based on the planner’s questions and synthesizes the information into a report.\n\nIt focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.\nGPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention.\n\n\n\n\n\nBoth Storm and GPTR have distinct research and writing phases, utilizing multiple agents.\nStorm’s pre-writing phase involves a more interactive and iterative process between agents, while GPTR’s planner simply generates questions.\nAI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information.\n\n\n\n\n\nYikes demonstrated using GPTR and Storm to research community ambassador programs.\nHe highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.\nHe showcased the Obsidian plugin “Smart Connections” to help cross-reference information and manage context while working with the generated reports.\n\n\n\n\n\nThe presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:\n\nQuickly gaining a shallow understanding of a new topic.\nBrainstorming and exploring new ideas in a familiar domain.\nDiscovering overlooked information or research avenues.\n\nThey emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#key-takeaways",
+    "href": "posts/ai-research-agents/index.html#key-takeaways",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "AI research agents are evolving rapidly but still require human oversight and critical evaluation.\nThey can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.\nDomain expertise remains crucial for effectively leveraging these tools and filtering their output."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#sakanas-ai-scientist",
+    "href": "posts/ai-research-agents/index.html#sakanas-ai-scientist",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "This agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.\nYikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.\nIt utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources.\nIt’s considered the most complex of the three agents discussed."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#stanford-ovals-storm",
+    "href": "posts/ai-research-agents/index.html#stanford-ovals-storm",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "Designed for Wikipedia-style writing, Storm uses a two-stage approach:\n\nPre-writing: Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as “perspective-guided question asking.”\nWriting: A separate agent then uses the outline to write the full article.\n\nIt’s implemented in LangChain and is modular, allowing for customization.\nYikes prefers Storm’s inline citations, similar to Wikipedia, but noted that the links are often inaccurate."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#gpt-researcher-gptr",
+    "href": "posts/ai-research-agents/index.html#gpt-researcher-gptr",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "Similar to Storm, GPTR also has two agents:\n\nPlanner: Formulates research questions.\nResearcher: Accesses the web based on the planner’s questions and synthesizes the information into a report.\n\nIt focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.\nGPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#comparison",
+    "href": "posts/ai-research-agents/index.html#comparison",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "Both Storm and GPTR have distinct research and writing phases, utilizing multiple agents.\nStorm’s pre-writing phase involves a more interactive and iterative process between agents, while GPTR’s planner simply generates questions.\nAI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#demo",
+    "href": "posts/ai-research-agents/index.html#demo",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "Yikes demonstrated using GPTR and Storm to research community ambassador programs.\nHe highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.\nHe showcased the Obsidian plugin “Smart Connections” to help cross-reference information and manage context while working with the generated reports."
+  },
+  {
+    "objectID": "posts/ai-research-agents/index.html#conclusion",
+    "href": "posts/ai-research-agents/index.html#conclusion",
+    "title": "AI Research Agents: Storm, Scientist, and GPTR",
+    "section": "",
+    "text": "The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:\n\nQuickly gaining a shallow understanding of a new topic.\nBrainstorming and exploring new ideas in a familiar domain.\nDiscovering overlooked information or research avenues.\n\nThey emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html",
+    "href": "posts/langflow-visual-llm-tool/index.html",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "This week’s meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.\n\n\n\n\nLangflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.\n\n\n\n\nDuring the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.\n\n\n\n\nSlono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
+    "href": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "Langflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#qa",
+    "href": "posts/langflow-visual-llm-tool/index.html#qa",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "During the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#summary",
+    "href": "posts/langflow-visual-llm-tool/index.html#summary",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
   }
 ]
