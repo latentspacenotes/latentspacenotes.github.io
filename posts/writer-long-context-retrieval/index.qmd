@@ -13,7 +13,7 @@ description-meta: "Paper Club notes on a new research paper from Writer titled '
 card-style: "summary"
 toc: true
 ---
-# Paper Club | Week 37
+# Paper Club | 2024 Week 37
 
 We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method **enhances performance without fine-tuning**, making it easier to work with large text datasets and codebases.
 

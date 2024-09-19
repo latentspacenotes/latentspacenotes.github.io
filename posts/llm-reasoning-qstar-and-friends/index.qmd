@@ -11,7 +11,7 @@ description-meta: "Paper Club livestream led by Swyx, focused on AI reasoning pa
 card-style: "summary"
 toc: true
 ---
-# Paper Club | Week 38
+# Paper Club | 2024 Week 38
 
 This week's Paper Club is focused on **LLM Reasoning** from the arXiv papers STaR, Quiet-STaR, and V-STaR.
 
