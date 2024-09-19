@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/llm-reasoning-qstar-and-friends/index.html",
       "/posts/ai-powered-ide-alternatives/index.html",
       "/posts/langflow-visual-llm-tool/index.html",
       "/posts/ai-research-agents/index.html"

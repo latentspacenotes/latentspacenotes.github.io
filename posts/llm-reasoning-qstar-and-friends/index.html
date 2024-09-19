@@ -6,12 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yikes">
-<meta name="author" content="Frikster">
-<meta name="dcterms.date" content="2024-08-30">
-<meta name="description" content="AI Research Agents: Sakana’s AI Scientist, Stanford Oval’s Storm, and GPT Researcher, are unique in their ability to generate research ideas and execute experiments, analyze results, and even draft research papers.">
+<meta name="author" content="Swyx">
+<meta name="dcterms.date" content="2024-09-18">
+<meta name="description" content="Paper Club livestream led by Swyx, focused on AI reasoning papers, particularly STaR and its successors (Quiet-STaR &amp; V-STaR), potentially relevant to OpenAI’s o1 model.">
 
-<title>AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes</title>
+<title>LLM Reasoning: Q-STaR and Friends – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,13 +74,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
+<meta property="og:title" content="LLM Reasoning: Q-STaR and Friends – Latent Space Notes">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
+<meta property="og:image:height" content="808">
+<meta property="og:image:width" content="1440">
+<meta name="twitter:title" content="LLM Reasoning: Q-STaR and Friends – Latent Space Notes">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png">
+<meta name="twitter:image-height" content="808">
+<meta name="twitter:image-width" content="1440">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -124,10 +127,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">AI Research Agents: Storm, Scientist, and GPTR</h1>
+      <h1 class="title">LLM Reasoning: Q-STaR and Friends</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">AI In Action</div>
-                <div class="quarto-category">Agents</div>
+                <div class="quarto-category">Paper Club</div>
+                <div class="quarto-category">Reasoning</div>
               </div>
                   </div>
   </div>
@@ -136,17 +139,16 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p><a href="https://twitter.com/yikesawjeez">Yikes</a> </p>
-               <p>Frikster </p>
+               <p><a href="https://twitter.com/swyx">Swyx</a> </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 30, 2024</p>
+        <p class="date">September 18, 2024</p>
       </div>
     </div>
     
@@ -168,15 +170,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ai-in-action-2024-week-35" id="toc-ai-in-action-2024-week-35" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-35">AI In Action | 2024 Week 35</a>
+  <li><a href="#paper-club-week-38" id="toc-paper-club-week-38" class="nav-link active" data-scroll-target="#paper-club-week-38">Paper Club | Week 38</a>
   <ul class="collapse">
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
-  <li><a href="#sakanas-ai-scientist" id="toc-sakanas-ai-scientist" class="nav-link" data-scroll-target="#sakanas-ai-scientist">1. Sakana’s AI Scientist</a></li>
-  <li><a href="#stanford-ovals-storm" id="toc-stanford-ovals-storm" class="nav-link" data-scroll-target="#stanford-ovals-storm">2. Stanford Oval’s Storm</a></li>
-  <li><a href="#gpt-researcher-gptr" id="toc-gpt-researcher-gptr" class="nav-link" data-scroll-target="#gpt-researcher-gptr">3. GPT Researcher (GPTR)</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
-  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#introduction-paper-stack" id="toc-introduction-paper-stack" class="nav-link" data-scroll-target="#introduction-paper-stack">Introduction &amp; Paper Stack</a></li>
+  <li><a href="#star-paper-discussion-begins" id="toc-star-paper-discussion-begins" class="nav-link" data-scroll-target="#star-paper-discussion-begins">STaR Paper Discussion Begins</a></li>
+  <li><a href="#quiet-star-v-star" id="toc-quiet-star-v-star" class="nav-link" data-scroll-target="#quiet-star-v-star">Quiet-STaR &amp; V-STaR</a></li>
+  <li><a href="#closing-discussion-future-papers" id="toc-closing-discussion-future-papers" class="nav-link" data-scroll-target="#closing-discussion-future-papers">Closing Discussion &amp; Future Papers</a></li>
+  <li><a href="#favorite-quote" id="toc-favorite-quote" class="nav-link" data-scroll-target="#favorite-quote">Favorite Quote</a></li>
+  <li><a href="#ideas-to-explore" id="toc-ideas-to-explore" class="nav-link" data-scroll-target="#ideas-to-explore">Ideas to Explore</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -188,77 +190,58 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="ai-in-action-2024-week-35" class="level1">
-<h1>AI In Action | 2024 Week 35</h1>
-<p>This week’s AI In Action club is focused on <strong>AI research agents</strong>, specifically three tools.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uugW_MogN3M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="paper-club-week-38" class="level1">
+<h1>Paper Club | Week 38</h1>
+<p>This week’s Paper Club is focused on <strong>LLM Reasoning</strong> from the arXiv papers STaR, Quiet-STaR, and V-STaR.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Y5-FeaFOEFM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>AI research agents are evolving rapidly but still require human oversight and critical evaluation.</li>
-<li>They can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.</li>
-<li>Domain expertise remains crucial for effectively leveraging these tools and filtering their output.</li>
+<li>The livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).</li>
+<li>Participants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.</li>
+<li>Swyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.</li>
+<li>These sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research.</li>
 </ul>
 </section>
-<section id="sakanas-ai-scientist" class="level2">
-<h2 class="anchored" data-anchor-id="sakanas-ai-scientist">1. Sakana’s AI Scientist</h2>
+<section id="introduction-paper-stack" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-paper-stack">Introduction &amp; Paper Stack</h2>
+<p>Swyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged.</p>
+</section>
+<section id="star-paper-discussion-begins" class="level2">
+<h2 class="anchored" data-anchor-id="star-paper-discussion-begins">STaR Paper Discussion Begins</h2>
 <ul>
-<li>This agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.</li>
-<li>Yikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.</li>
-<li>It utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources.</li>
-<li>It’s considered the most complex of the three agents discussed.</li>
+<li>Swyx dives into the 2022 <strong>STaR</strong> paper (<a href="https://arxiv.org/abs/2203.14465">2203.14465</a>), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.</li>
+<li>Swyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.</li>
+<li>The group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).</li>
+<li>Participants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning.</li>
 </ul>
 </section>
-<section id="stanford-ovals-storm" class="level2">
-<h2 class="anchored" data-anchor-id="stanford-ovals-storm">2. Stanford Oval’s Storm</h2>
+<section id="quiet-star-v-star" class="level2">
+<h2 class="anchored" data-anchor-id="quiet-star-v-star">Quiet-STaR &amp; V-STaR</h2>
 <ul>
-<li>Designed for Wikipedia-style writing, Storm uses a two-stage approach:
-<ul>
-<li><strong>Pre-writing:</strong> Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as “perspective-guided question asking.”</li>
-<li><strong>Writing:</strong> A separate agent then uses the outline to write the full article.</li>
-</ul></li>
-<li>It’s implemented in LangChain and is modular, allowing for customization.</li>
-<li>Yikes prefers Storm’s inline citations, similar to Wikipedia, but noted that the links are often inaccurate.</li>
+<li>Swyx critiques <strong>Quiet-STaR</strong> (<a href="https://arxiv.org/abs/2403.09629">2403.09629</a>), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.</li>
+<li>He then presents <strong>V-STaR</strong> (<a href="https://arxiv.org/abs/2402.06457">2402.06457</a>), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.<br>
+</li>
+<li>The discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance.</li>
 </ul>
 </section>
-<section id="gpt-researcher-gptr" class="level2">
-<h2 class="anchored" data-anchor-id="gpt-researcher-gptr">3. GPT Researcher (GPTR)</h2>
-<ul>
-<li>Similar to Storm, GPTR also has two agents:
-<ul>
-<li><strong>Planner:</strong> Formulates research questions.</li>
-<li><strong>Researcher:</strong> Accesses the web based on the planner’s questions and synthesizes the information into a report.</li>
-</ul></li>
-<li>It focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.</li>
-<li>GPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention.</li>
-</ul>
+<section id="closing-discussion-future-papers" class="level2">
+<h2 class="anchored" data-anchor-id="closing-discussion-future-papers">Closing Discussion &amp; Future Papers</h2>
+<p>The session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain.</p>
 </section>
-<section id="comparison" class="level2">
-<h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
-<ul>
-<li>Both Storm and GPTR have distinct research and writing phases, utilizing multiple agents.</li>
-<li>Storm’s pre-writing phase involves a more interactive and iterative process between agents, while GPTR’s planner simply generates questions.</li>
-<li>AI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information.</li>
-</ul>
+<section id="favorite-quote" class="level2">
+<h2 class="anchored" data-anchor-id="favorite-quote">Favorite Quote</h2>
+<blockquote class="blockquote">
+<p>“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)</p>
+</blockquote>
+<p>Swyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions.</p>
 </section>
-<section id="demo" class="level2">
-<h2 class="anchored" data-anchor-id="demo">Demo</h2>
+<section id="ideas-to-explore" class="level2">
+<h2 class="anchored" data-anchor-id="ideas-to-explore">Ideas to Explore</h2>
 <ul>
-<li>Yikes demonstrated using GPTR and Storm to research community ambassador programs.</li>
-<li>He highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.</li>
-<li>He showcased the Obsidian plugin “Smart Connections” to help cross-reference information and manage context while working with the generated reports.</li>
-</ul>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<ul>
-<li>The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:
-<ul>
-<li>Quickly gaining a shallow understanding of a new topic.</li>
-<li>Brainstorming and exploring new ideas in a familiar domain.</li>
-<li>Discovering overlooked information or research avenues.</li>
-</ul></li>
-<li>They emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification.</li>
+<li>Generalizing STaR beyond math and code</li>
+<li>The utility and deployment of separate verifier models</li>
+<li>The viability of “Thinking Tokens”</li>
 </ul>
 
 
