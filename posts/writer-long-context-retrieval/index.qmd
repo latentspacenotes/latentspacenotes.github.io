@@ -7,7 +7,7 @@ author:
     url: https://twitter.com/samjulien
 date: "2024-09-11"
 date-modified: last-modified
-categories: [Paper Club, Reasoning, LLMs]
+categories: [Paper Club, Retrieval, LLMs]
 image: "long-context-retrieval-writing-in-the-margins.jpg"
 description-meta: "Paper Club notes on a new research paper from Writer titled 'Writing in the Margins: Better Inference Pattern for Long Context Retrieval.' The paper explores the use of KV cache to improve long context retrieval in LLMs."
 card-style: "summary"
