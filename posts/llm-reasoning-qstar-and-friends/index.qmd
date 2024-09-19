@@ -1,0 +1,52 @@
+---
+title: "LLM Reasoning: Q-STaR and Friends"
+author:
+  - name: Swyx
+    url: https://twitter.com/swyx
+date: "2024-09-18"
+date-modified: last-modified
+categories: [Paper Club, Reasoning]
+image: "latent-space-paper-club-reasoning-qstar-paper.png"
+description-meta: "Paper Club livestream led by Swyx, focused on AI reasoning papers, particularly STaR and its successors (Quiet-STaR & V-STaR), potentially relevant to OpenAI's o1 model."
+card-style: "summary"
+toc: true
+---
+# Paper Club | Week 38
+
+This week's Paper Club is focused on **LLM Reasoning** from the arXiv papers STaR, Quiet-STaR, and V-STaR.
+
+{{< video https://www.youtube.com/watch?v=Y5-FeaFOEFM >}}
+
+## Key Takeaways
+
+* The livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR). 
+* Participants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains. 
+* Swyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI's o1 model. 
+* These sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research. 
+
+## Introduction & Paper Stack
+Swyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a "stack" of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged.
+
+## STaR Paper Discussion Begins
+* Swyx dives into the 2022 **STaR** paper ([2203.14465](https://arxiv.org/abs/2203.14465)), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of "rationalization" to address LLM looping, noting its positive impact on the training process.
+* Swyx points out the paper's lack of detailed examples and methodology, making reproducibility difficult. 
+* The group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model's ability to correct errors in human-annotated datasets (GSM8K). 
+* Participants engage in a lively discussion about STaR's limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper's value in establishing a framework for understanding and improving LLM reasoning.
+
+## Quiet-STaR & V-STaR
+* Swyx critiques **Quiet-STaR** ([2403.09629](https://arxiv.org/abs/2403.09629)), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the "Think Before You Speak" paper), deeming it impractical and offering minimal improvements. 
+* He then presents **V-STaR** ([2402.06457](https://arxiv.org/abs/2402.06457)), a different approach by another author, which leverages both correct and incorrect solutions to train a "verifier" model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.  
+* The discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance.
+
+## Closing Discussion & Future Papers
+The session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on "Validating the Validators," MCST (Monte Carlo Search Tree), and other papers in the reasoning domain.
+
+## Favorite Quote
+> "And I like that idea that we can deploy this and not have to [...] hope that we can fine tune it into the base model. This ties in a lot with the 'Let's verify step by step' from OpenAI." - Swyx (0:45:33)
+
+Swyx strongly advocates for V-STaR's approach of training separate verifier models, suggesting it is superior to integrated solutions.
+
+## Ideas to Explore
+* Generalizing STaR beyond math and code
+* The utility and deployment of separate verifier models
+* The viability of "Thinking Tokens"
