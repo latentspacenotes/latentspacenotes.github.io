@@ -13,7 +13,7 @@ toc: true
 ---
 # AI In Action | 2024 Week 36
 
-This week's meeting is a presentation led by Slono about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.
+A presentation about Langflow, an open-source tool for building and managing LLM-powered applications using a **visual node-based interface**.
 
 {{< video https://www.youtube.com/watch?v=UdB50GZfn5A >}}
 
