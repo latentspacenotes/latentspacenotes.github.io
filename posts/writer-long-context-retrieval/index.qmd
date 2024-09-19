@@ -1,0 +1,57 @@
+---
+title: "Long Context Retrieval by Writer"
+author:
+  - name: Umar Jamil
+    url: https://twitter.com/hkproj
+  - name: Sam Julien
+    url: https://twitter.com/samjulien
+date: "2024-09-11"
+date-modified: last-modified
+categories: [Paper Club, Reasoning, LLMs]
+image: "long-context-retrieval-writing-in-the-margins.jpg"
+description-meta: "Paper Club notes on a new research paper from Writer titled 'Writing in the Margins: Better Inference Pattern for Long Context Retrieval.' The paper explores the use of KV cache to improve long context retrieval in LLMs."
+card-style: "summary"
+toc: true
+---
+# Paper Club | Week 37
+
+We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method **enhances performance without fine-tuning**, making it easier to work with large text datasets and codebases.
+
+## Writing in the Margins
+
+The paper ([2408.14906](https://www.arxiv.org/abs/2408.14906)) focuses on improving how Transformer models handle long context prompts, particularly in scenarios involving question answering about lengthy texts. The paper proposes a new inference pattern, `WiM`.
+
+## Key Concepts
+
+* **KV Cache:** The memory of the transformer model where the prompt is stored.
+* **Prefilling:** The process of loading the prompt into the KV cache. It's computationally expensive (quadratic cost).
+* **Chunked Prefilling:** For very long prompts, the prompt is split into chunks and prefilled sequentially.
+* **Writing in the Margins:**  Leveraging chunked prefilling to extract summaries (margins) from each chunk, based on the query. These margins are appended at the end of the prompt before the question is asked, improving the model's ability to answer the question.
+
+## How It Works
+
+1. **Chunking:** The long prompt is divided into chunks.
+2. **Prefilling + Margin Extraction:** Each chunk is prefilled. An instruction is added to extract a summary (margin) relevant to the query. This margin is saved.
+3. **Margin Classification (Optional):** Margins can be classified as relevant or irrelevant, either using an auxiliary model or the same LLM in parallel with the next chunk's prefilling.
+4. **Append Margins + Query:** All relevant margins are appended at the end of the full prompt, followed by the query.
+5. **Answer Generation:** The LLM generates the answer, leveraging both the context and the margins.
+
+## Benefits
+
+* **Improved Long Context Performance:**  Especially for smaller LLMs.
+* **No Fine-tuning Required:** Works with any transformer model out of the box.
+* **Reduced Prefilling Cost:** Avoids prefilling the entire context twice, as in traditional chunking methods.
+* **Human-in-the-loop Potential:** Margins can be shown to users for feedback and early exit.
+
+## Demo and Implementation
+
+Umar demonstrates the concept with a [LinkedIn video](https://www.linkedin.com/posts/ujamil_we-have-models-that-can-handle-millions-of-activity-7234541844670382080-F1tF) and points to a [GitHub repository](https://github.com/writer/writing-in-the-margins) with an implementation compatible with Llama, Phi, and Qwen models.
+
+## Q&A
+
+The presentation is followed by a Q&A session where Umar addresses questions about the paper's details, including:
+
+* The efficiency of chunked prefilling.
+* The cost-effectiveness of Writing in the Margins compared to traditional approaches.
+* Latency implications.
+* Future research directions in long context modeling and attention mechanisms.
