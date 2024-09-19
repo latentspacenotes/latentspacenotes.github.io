@@ -45,7 +45,7 @@ The paper ([2408.14906](https://www.arxiv.org/abs/2408.14906)) focuses on improv
 
 ## Demo and Implementation
 
-Umar demonstrates the concept with a [LinkedIn video](https://www.linkedin.com/posts/ujamil_we-have-models-that-can-handle-millions-of-activity-7234541844670382080-F1tF) and points to a [GitHub repository](https://github.com/writer/writing-in-the-margins) with an implementation compatible with Llama, Phi, and Qwen models.
+Umar demonstrates the concept with a [LinkedIn video](https://www.linkedin.com/posts/ujamil_we-have-models-that-can-handle-millions-of-activity-7234541844670382080-F1tF) and points to a [GitHub repository](https://github.com/writer/writing-in-the-margins) with an implementation compatible with LLaMA 3.1, Phi3 and Qwen2 models.
 
 ## Q&A
 
