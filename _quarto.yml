@@ -11,8 +11,10 @@ website:
       - icon: twitter
         href: https://twitter.com/latentspacepod
   site-url: https://latentspacenotes.github.io
+  google-analytics: "G-YLB46PPRP3"
   twitter-card: true
   open-graph: true
+
 format:
   html:
     theme:
