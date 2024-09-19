@@ -7,46 +7,116 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html",
-    "href": "posts/ai-powered-ide-alternatives/index.html",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html",
+    "href": "posts/writer-long-context-retrieval/index.html",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "An exploration of IDEs, featuring Cursor, PearAI and NeoVim - AI-powered coding tools. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.\n\n\n\nPhlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
+    "text": "We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method enhances performance without fine-tuning, making it easier to work with large text datasets and codebases.\n\n\nThe paper (2408.14906) focuses on improving how Transformer models handle long context prompts, particularly in scenarios involving question answering about lengthy texts. The paper proposes a new inference pattern, WiM.\n\n\n\n\nKV Cache: The memory of the transformer model where the prompt is stored.\nPrefilling: The process of loading the prompt into the KV cache. It’s computationally expensive (quadratic cost).\nChunked Prefilling: For very long prompts, the prompt is split into chunks and prefilled sequentially.\nWriting in the Margins: Leveraging chunked prefilling to extract summaries (margins) from each chunk, based on the query. These margins are appended at the end of the prompt before the question is asked, improving the model’s ability to answer the question.\n\n\n\n\n\nChunking: The long prompt is divided into chunks.\nPrefilling + Margin Extraction: Each chunk is prefilled. An instruction is added to extract a summary (margin) relevant to the query. This margin is saved.\nMargin Classification (Optional): Margins can be classified as relevant or irrelevant, either using an auxiliary model or the same LLM in parallel with the next chunk’s prefilling.\nAppend Margins + Query: All relevant margins are appended at the end of the full prompt, followed by the query.\nAnswer Generation: The LLM generates the answer, leveraging both the context and the margins.\n\n\n\n\n\nImproved Long Context Performance: Especially for smaller LLMs.\nNo Fine-tuning Required: Works with any transformer model out of the box.\nReduced Prefilling Cost: Avoids prefilling the entire context twice, as in traditional chunking methods.\nHuman-in-the-loop Potential: Margins can be shown to users for feedback and early exit.\n\n\n\n\nUmar demonstrates the concept with a LinkedIn video and points to a GitHub repository with an implementation compatible with Llama, Phi, and Qwen models.\n\n\n\nThe presentation is followed by a Q&A session where Umar addresses questions about the paper’s details, including:\n\nThe efficiency of chunked prefilling.\nThe cost-effectiveness of Writing in the Margins compared to traditional approaches.\nLatency implications.\nFuture research directions in long context modeling and attention mechanisms."
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html#writing-in-the-margins",
+    "href": "posts/writer-long-context-retrieval/index.html#writing-in-the-margins",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "Phlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
+    "text": "The paper (2408.14906) focuses on improving how Transformer models handle long context prompts, particularly in scenarios involving question answering about lengthy texts. The paper proposes a new inference pattern, WiM."
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
-    "href": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html#key-concepts",
+    "href": "posts/writer-long-context-retrieval/index.html#key-concepts",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "Phlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
+    "text": "KV Cache: The memory of the transformer model where the prompt is stored.\nPrefilling: The process of loading the prompt into the KV cache. It’s computationally expensive (quadratic cost).\nChunked Prefilling: For very long prompts, the prompt is split into chunks and prefilled sequentially.\nWriting in the Margins: Leveraging chunked prefilling to extract summaries (margins) from each chunk, based on the query. These margins are appended at the end of the prompt before the question is asked, improving the model’s ability to answer the question."
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html#how-it-works",
+    "href": "posts/writer-long-context-retrieval/index.html#how-it-works",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
+    "text": "Chunking: The long prompt is divided into chunks.\nPrefilling + Margin Extraction: Each chunk is prefilled. An instruction is added to extract a summary (margin) relevant to the query. This margin is saved.\nMargin Classification (Optional): Margins can be classified as relevant or irrelevant, either using an auxiliary model or the same LLM in parallel with the next chunk’s prefilling.\nAppend Margins + Query: All relevant margins are appended at the end of the full prompt, followed by the query.\nAnswer Generation: The LLM generates the answer, leveraging both the context and the margins."
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
-    "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html#benefits",
+    "href": "posts/writer-long-context-retrieval/index.html#benefits",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
+    "text": "Improved Long Context Performance: Especially for smaller LLMs.\nNo Fine-tuning Required: Works with any transformer model out of the box.\nReduced Prefilling Cost: Avoids prefilling the entire context twice, as in traditional chunking methods.\nHuman-in-the-loop Potential: Margins can be shown to users for feedback and early exit."
   },
   {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
-    "title": "AI Powered IDE Alternatives",
+    "objectID": "posts/writer-long-context-retrieval/index.html#demo-and-implementation",
+    "href": "posts/writer-long-context-retrieval/index.html#demo-and-implementation",
+    "title": "Long Context Retrieval by Writer",
     "section": "",
-    "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
+    "text": "Umar demonstrates the concept with a LinkedIn video and points to a GitHub repository with an implementation compatible with Llama, Phi, and Qwen models."
+  },
+  {
+    "objectID": "posts/writer-long-context-retrieval/index.html#qa",
+    "href": "posts/writer-long-context-retrieval/index.html#qa",
+    "title": "Long Context Retrieval by Writer",
+    "section": "",
+    "text": "The presentation is followed by a Q&A session where Umar addresses questions about the paper’s details, including:\n\nThe efficiency of chunked prefilling.\nThe cost-effectiveness of Writing in the Margins compared to traditional approaches.\nLatency implications.\nFuture research directions in long context modeling and attention mechanisms."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "This week’s Paper Club is focused on LLM Reasoning from the arXiv papers STaR, Quiet-STaR, and V-STaR.\n\n\n\n\nThe livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).\nParticipants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.\nSwyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.\nThese sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research.\n\n\n\n\nSwyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged.\n\n\n\n\nSwyx dives into the 2022 STaR paper (2203.14465), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.\nSwyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.\nThe group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).\nParticipants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning.\n\n\n\n\n\nSwyx critiques Quiet-STaR (2403.09629), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.\nHe then presents V-STaR (2402.06457), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.\n\nThe discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance.\n\n\n\n\nThe session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain.\n\n\n\n\n“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)\n\nSwyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions.\n\n\n\n\nGeneralizing STaR beyond math and code\nThe utility and deployment of separate verifier models\nThe viability of “Thinking Tokens”"
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#key-takeaways",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#key-takeaways",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "The livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).\nParticipants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.\nSwyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.\nThese sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#introduction-paper-stack",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#introduction-paper-stack",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "Swyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#star-paper-discussion-begins",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#star-paper-discussion-begins",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "Swyx dives into the 2022 STaR paper (2203.14465), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.\nSwyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.\nThe group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).\nParticipants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#quiet-star-v-star",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#quiet-star-v-star",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "Swyx critiques Quiet-STaR (2403.09629), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.\nHe then presents V-STaR (2402.06457), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.\n\nThe discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#closing-discussion-future-papers",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#closing-discussion-future-papers",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "The session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#favorite-quote",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#favorite-quote",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)\n\nSwyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions."
+  },
+  {
+    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#ideas-to-explore",
+    "href": "posts/llm-reasoning-qstar-and-friends/index.html#ideas-to-explore",
+    "title": "LLM Reasoning: Q-STaR and Friends",
+    "section": "",
+    "text": "Generalizing STaR beyond math and code\nThe utility and deployment of separate verifier models\nThe viability of “Thinking Tokens”"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "LLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLong Context Retrieval by Writer\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nUmar Jamil, Sam Julien\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/ai-research-agents/index.html",
@@ -105,67 +175,46 @@
     "text": "The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:\n\nQuickly gaining a shallow understanding of a new topic.\nBrainstorming and exploring new ideas in a familiar domain.\nDiscovering overlooked information or research avenues.\n\nThey emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Posts",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html",
+    "href": "posts/ai-powered-ide-alternatives/index.html",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "LLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
+    "text": "An exploration of IDEs, featuring Cursor, PearAI and NeoVim - AI-powered coding tools. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.\n\n\n\nPhlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   },
   {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html",
-    "title": "LLM Reasoning: Q-STaR and Friends",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "This week’s Paper Club is focused on LLM Reasoning from the arXiv papers STaR, Quiet-STaR, and V-STaR.\n\n\n\n\nThe livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).\nParticipants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.\nSwyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.\nThese sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research.\n\n\n\n\nSwyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged.\n\n\n\n\nSwyx dives into the 2022 STaR paper (2203.14465), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.\nSwyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.\nThe group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).\nParticipants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning.\n\n\n\n\n\nSwyx critiques Quiet-STaR (2403.09629), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.\nHe then presents V-STaR (2402.06457), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.\n\nThe discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance.\n\n\n\n\nThe session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain.\n\n\n\n\n“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)\n\nSwyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions.\n\n\n\n\nGeneralizing STaR beyond math and code\nThe utility and deployment of separate verifier models\nThe viability of “Thinking Tokens”"
+    "text": "Phlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
   },
   {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#key-takeaways",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#key-takeaways",
-    "title": "LLM Reasoning: Q-STaR and Friends",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "The livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).\nParticipants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.\nSwyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.\nThese sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research."
+    "text": "Phlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
   },
   {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#introduction-paper-stack",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#introduction-paper-stack",
-    "title": "LLM Reasoning: Q-STaR and Friends",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "Swyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged."
+    "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
   },
   {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#star-paper-discussion-begins",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#star-paper-discussion-begins",
-    "title": "LLM Reasoning: Q-STaR and Friends",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "Swyx dives into the 2022 STaR paper (2203.14465), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.\nSwyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.\nThe group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).\nParticipants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning."
+    "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
   },
   {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#quiet-star-v-star",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#quiet-star-v-star",
-    "title": "LLM Reasoning: Q-STaR and Friends",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "title": "AI Powered IDE Alternatives",
     "section": "",
-    "text": "Swyx critiques Quiet-STaR (2403.09629), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.\nHe then presents V-STaR (2402.06457), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.\n\nThe discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance."
-  },
-  {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#closing-discussion-future-papers",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#closing-discussion-future-papers",
-    "title": "LLM Reasoning: Q-STaR and Friends",
-    "section": "",
-    "text": "The session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain."
-  },
-  {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#favorite-quote",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#favorite-quote",
-    "title": "LLM Reasoning: Q-STaR and Friends",
-    "section": "",
-    "text": "“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)\n\nSwyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions."
-  },
-  {
-    "objectID": "posts/llm-reasoning-qstar-and-friends/index.html#ideas-to-explore",
-    "href": "posts/llm-reasoning-qstar-and-friends/index.html#ideas-to-explore",
-    "title": "LLM Reasoning: Q-STaR and Friends",
-    "section": "",
-    "text": "Generalizing STaR beyond math and code\nThe utility and deployment of separate verifier models\nThe viability of “Thinking Tokens”"
+    "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   },
   {
     "objectID": "posts/langflow-visual-llm-tool/index.html",

@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://latentspacenotes.github.io/about.html</loc>
-    <lastmod>2024-09-19T14:19:06.618Z</lastmod>
+    <lastmod>2024-09-19T16:26:38.146Z</lastmod>
   </url>
   <url>
-    <loc>https://latentspacenotes.github.io/posts/ai-powered-ide-alternatives/index.html</loc>
-    <lastmod>2024-09-19T14:19:06.619Z</lastmod>
-  </url>
-  <url>
-    <loc>https://latentspacenotes.github.io/posts/ai-research-agents/index.html</loc>
-    <lastmod>2024-09-19T14:19:06.621Z</lastmod>
-  </url>
-  <url>
-    <loc>https://latentspacenotes.github.io/index.html</loc>
-    <lastmod>2024-09-19T14:19:06.618Z</lastmod>
+    <loc>https://latentspacenotes.github.io/posts/writer-long-context-retrieval/index.html</loc>
+    <lastmod>2024-09-19T16:26:38.160Z</lastmod>
   </url>
   <url>
     <loc>https://latentspacenotes.github.io/posts/llm-reasoning-qstar-and-friends/index.html</loc>
-    <lastmod>2024-09-19T14:19:06.623Z</lastmod>
+    <lastmod>2024-09-19T16:26:38.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://latentspacenotes.github.io/index.html</loc>
+    <lastmod>2024-09-19T16:26:38.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://latentspacenotes.github.io/posts/ai-research-agents/index.html</loc>
+    <lastmod>2024-09-19T16:26:38.149Z</lastmod>
+  </url>
+  <url>
+    <loc>https://latentspacenotes.github.io/posts/ai-powered-ide-alternatives/index.html</loc>
+    <lastmod>2024-09-19T16:26:38.147Z</lastmod>
   </url>
   <url>
     <loc>https://latentspacenotes.github.io/posts/langflow-visual-llm-tool/index.html</loc>
-    <lastmod>2024-09-19T14:19:06.621Z</lastmod>
+    <lastmod>2024-09-19T16:26:38.149Z</lastmod>
   </url>
 </urlset>

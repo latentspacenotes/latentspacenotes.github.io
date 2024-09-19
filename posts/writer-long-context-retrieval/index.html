@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Umar Jamil">
+<meta name="author" content="Sam Julien">
+<meta name="dcterms.date" content="2024-09-11">
+<meta name="description" content="Paper Club notes on a new research paper from Writer titled ‘Writing in the Margins: Better Inference Pattern for Long Context Retrieval.’ The paper explores the use of KV cache to improve long context retrieval in LLMs.">
 
-<title>Posts – Latent Space Notes</title>
+<title>Long Context Retrieval by Writer – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +27,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,71 +72,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Posts – Latent Space Notes">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Long Context Retrieval by Writer – Latent Space Notes">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/writer-long-context-retrieval/long-context-retrieval-writing-in-the-margins.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="Posts – Latent Space Notes">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Long Context Retrieval by Writer – Latent Space Notes">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/writer-long-context-retrieval/long-context-retrieval-writing-in-the-margins.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -144,7 +92,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Latent Space Notes</span>
     </a>
   </div>
@@ -175,236 +123,125 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Posts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Long Context Retrieval by Writer</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Paper Club</div>
+                <div class="quarto-category">Reasoning</div>
+                <div class="quarto-category">LLMs</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://twitter.com/hkproj">Umar Jamil</a> </p>
+               <p><a href="https://twitter.com/samjulien">Sam Julien</a> </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 11, 2024</p>
+      </div>
+    </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">September 19, 2024</p>
+      </div>
+    </div>
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="AI In Action">AI In Action <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Agents">Agents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Dev Tools">Dev Tools <span class="quarto-category-count">(2)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Paper Club">Paper Club <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Reasoning">Reasoning <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#paper-club-week-37" id="toc-paper-club-week-37" class="nav-link active" data-scroll-target="#paper-club-week-37">Paper Club | Week 37</a>
+  <ul class="collapse">
+  <li><a href="#writing-in-the-margins" id="toc-writing-in-the-margins" class="nav-link" data-scroll-target="#writing-in-the-margins">Writing in the Margins</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits</a></li>
+  <li><a href="#demo-and-implementation" id="toc-demo-and-implementation" class="nav-link" data-scroll-target="#demo-and-implementation">Demo and Implementation</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="paper-club-week-37" class="level1">
+<h1>Paper Club | Week 37</h1>
+<p>We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method <strong>enhances performance without fine-tuning</strong>, making it easier to work with large text datasets and codebases.</p>
+<section id="writing-in-the-margins" class="level2">
+<h2 class="anchored" data-anchor-id="writing-in-the-margins">Writing in the Margins</h2>
+<p>The paper (<a href="https://www.arxiv.org/abs/2408.14906">2408.14906</a>) focuses on improving how Transformer models handle long context prompts, particularly in scenarios involving question answering about lengthy texts. The paper proposes a new inference pattern, <code>WiM</code>.</p>
+</section>
+<section id="key-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts">Key Concepts</h2>
+<ul>
+<li><strong>KV Cache:</strong> The memory of the transformer model where the prompt is stored.</li>
+<li><strong>Prefilling:</strong> The process of loading the prompt into the KV cache. It’s computationally expensive (quadratic cost).</li>
+<li><strong>Chunked Prefilling:</strong> For very long prompts, the prompt is split into chunks and prefilled sequentially.</li>
+<li><strong>Writing in the Margins:</strong> Leveraging chunked prefilling to extract summaries (margins) from each chunk, based on the query. These margins are appended at the end of the prompt before the question is asked, improving the model’s ability to answer the question.</li>
+</ul>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<ol type="1">
+<li><strong>Chunking:</strong> The long prompt is divided into chunks.</li>
+<li><strong>Prefilling + Margin Extraction:</strong> Each chunk is prefilled. An instruction is added to extract a summary (margin) relevant to the query. This margin is saved.</li>
+<li><strong>Margin Classification (Optional):</strong> Margins can be classified as relevant or irrelevant, either using an auxiliary model or the same LLM in parallel with the next chunk’s prefilling.</li>
+<li><strong>Append Margins + Query:</strong> All relevant margins are appended at the end of the full prompt, followed by the query.</li>
+<li><strong>Answer Generation:</strong> The LLM generates the answer, leveraging both the context and the margins.</li>
+</ol>
+</section>
+<section id="benefits" class="level2">
+<h2 class="anchored" data-anchor-id="benefits">Benefits</h2>
+<ul>
+<li><strong>Improved Long Context Performance:</strong> Especially for smaller LLMs.</li>
+<li><strong>No Fine-tuning Required:</strong> Works with any transformer model out of the box.</li>
+<li><strong>Reduced Prefilling Cost:</strong> Avoids prefilling the entire context twice, as in traditional chunking methods.</li>
+<li><strong>Human-in-the-loop Potential:</strong> Margins can be shown to users for feedback and early exit.</li>
+</ul>
+</section>
+<section id="demo-and-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="demo-and-implementation">Demo and Implementation</h2>
+<p>Umar demonstrates the concept with a <a href="https://www.linkedin.com/posts/ujamil_we-have-models-that-can-handle-millions-of-activity-7234541844670382080-F1tF">LinkedIn video</a> and points to a <a href="https://github.com/writer/writing-in-the-margins">GitHub repository</a> with an implementation compatible with Llama, Phi, and Qwen models.</p>
+</section>
+<section id="qa" class="level2">
+<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
+<p>The presentation is followed by a Q&amp;A session where Umar addresses questions about the paper’s details, including:</p>
+<ul>
+<li>The efficiency of chunked prefilling.</li>
+<li>The cost-effectiveness of Writing in the Margins compared to traditional approaches.</li>
+<li>Latency implications.</li>
+<li>Future research directions in long context modeling and attention mechanisms.</li>
+</ul>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Paper Club,Reasoning,LLMs" data-listing-date-sort="1726617600000" data-listing-file-modified-sort="1726763198151" data-listing-date-modified-sort="1726763198000" data-listing-reading-time-sort="3" data-listing-word-count-sort="561">
-<div class="thumbnail">
-<p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a></p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">LLM Reasoning: Q-STaR and Friends</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Paper Club'); return false;">
-Paper Club
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Reasoning'); return false;">
-Reasoning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">This week’s Paper Club is focused on <strong>LLM Reasoning</strong> from the arXiv papers STaR, Quiet-STaR, and V-STaR.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">
-<div class="listing-date">
-Sep 18, 2024
-</div>
-<div class="listing-author">
-Swyx
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="AI In Action,Dev Tools,IDE" data-listing-date-sort="1726185600000" data-listing-file-modified-sort="1726763198147" data-listing-date-modified-sort="1726763198000" data-listing-reading-time-sort="2" data-listing-word-count-sort="360">
-<div class="thumbnail">
-<p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ai-powered-ide-alternatives/ai-powered-ides-pearai.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">AI Powered IDE Alternatives</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">An exploration of IDEs, featuring Cursor, PearAI and NeoVim - <strong>AI-powered coding tools</strong>. The session covers comparative analysis, practical demonstrations, and open-source…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<div class="listing-date">
-Sep 13, 2024
-</div>
-<div class="listing-author">
-Phlo , Yikes
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Paper Club,Reasoning,LLMs" data-listing-date-sort="1726012800000" data-listing-file-modified-sort="1726763198160" data-listing-date-modified-sort="1726763198000" data-listing-reading-time-sort="2" data-listing-word-count-sort="372">
-<div class="thumbnail">
-<p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a></p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/writer-long-context-retrieval/long-context-retrieval-writing-in-the-margins.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">Long Context Retrieval by Writer</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Paper Club'); return false;">
-Paper Club
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Reasoning'); return false;">
-Reasoning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method <strong>enhances performance without fine-tuning</strong>, making it easier…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-<div class="listing-author">
-Umar Jamil, Sam Julien
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="AI In Action,Dev Tools,LLMs" data-listing-date-sort="1725580800000" data-listing-file-modified-sort="1726763198149" data-listing-date-modified-sort="1726763198000" data-listing-reading-time-sort="3" data-listing-word-count-sort="464">
-<div class="thumbnail">
-<p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">Langflow: A Visual LLM Tool</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">A presentation about Langflow, an open-source tool for building and managing LLM-powered applications using a <strong>visual node-based interface</strong>.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2024
-</div>
-<div class="listing-author">
-Slono
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="AI In Action,Agents" data-listing-date-sort="1724976000000" data-listing-file-modified-sort="1726763198149" data-listing-date-modified-sort="1726763198000" data-listing-reading-time-sort="3" data-listing-word-count-sort="521">
-<div class="thumbnail">
-<p><a href="./posts/ai-research-agents/index.html" class="no-external"></a></p><a href="./posts/ai-research-agents/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ai-research-agents/ai-agents-research-lab.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/ai-research-agents/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ai-research-agents/index.html" class="no-external">AI Research Agents: Storm, Scientist, and GPTR</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ai-research-agents/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Agents'); return false;">
-Agents
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai-research-agents/index.html" class="no-external">This week’s AI In Action club is focused on <strong>AI research agents</strong>, specifically three tools.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ai-research-agents/index.html" class="no-external">
-<div class="listing-date">
-Aug 30, 2024
-</div>
-<div class="listing-author">
-Yikes , Frikster
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
