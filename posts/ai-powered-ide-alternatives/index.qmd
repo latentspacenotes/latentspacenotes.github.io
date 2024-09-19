@@ -15,7 +15,7 @@ toc: true
 ---
 # AI In Action | 2024 Week 37
 
-This week's meeting is a discussion about AI-powered IDEs and related tools, featuring three participants: KBall, Phlo, and Yikes.
+An exploration of IDEs, featuring Cursor, PearAI and NeoVim - **AI-powered coding tools**. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.
 
 ## Initial Setup and Discussion
 
