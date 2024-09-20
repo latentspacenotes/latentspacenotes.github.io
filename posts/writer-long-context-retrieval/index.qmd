@@ -17,6 +17,8 @@ toc: true
 
 We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method **enhances performance without fine-tuning**, making it easier to work with large text datasets and codebases.
 
+{{< video https://www.youtube.com/watch?v=VHwrhL_MSV4 >}}
+
 ## Writing in the Margins
 
 The paper ([2408.14906](https://www.arxiv.org/abs/2408.14906)) focuses on improving how Transformer models handle long context prompts, particularly in scenarios involving question answering about lengthy texts. The paper proposes a new inference pattern, `WiM`.
