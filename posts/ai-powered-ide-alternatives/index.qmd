@@ -1,5 +1,5 @@
 ---
-title: "AI Powered IDE Alternatives"
+title: "AI Powered IDE Alternatives (Part 1)"
 author:
   - name: Phlo
     url: https://twitter.com/YoungPhlo_
@@ -14,6 +14,8 @@ card-style: "summary"
 toc: true
 ---
 # AI In Action | 2024 Week 37
+
+{{< video https://www.youtube.com/watch?v=9rjXE1lgEM >}}
 
 An exploration of IDEs, featuring Cursor, PearAI and NeoVim - **AI-powered coding tools**. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.
 
