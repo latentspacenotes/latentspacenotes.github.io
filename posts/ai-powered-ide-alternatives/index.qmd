@@ -34,7 +34,7 @@ An exploration of IDEs, featuring Cursor, PearAI and NeoVim - **AI-powered codin
 ## NeoVim and Composer Discussion
 
 * The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.
-* Yikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.
+* Yikes recommends LazyVim and Kickstart for learning NeoVim and precognition.nvim for mastering keybindings.
 * They discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.
 
 ## Composer Demo
