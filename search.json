@@ -116,7 +116,7 @@
     "href": "index.html",
     "title": "Posts",
     "section": "",
-    "text": "LLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLong Context Retrieval by Writer\n\n\n\n\n\n\nPaper Club\n\n\nRetrieval\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nUmar Jamil, Sam Julien\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
+    "text": "LLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives (Part 1)\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLong Context Retrieval by Writer\n\n\n\n\n\n\nPaper Club\n\n\nRetrieval\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nUmar Jamil, Sam Julien\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/ai-research-agents/index.html",
@@ -177,42 +177,42 @@
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html",
     "href": "posts/ai-powered-ide-alternatives/index.html",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "An exploration of IDEs, featuring Cursor, PearAI and NeoVim - AI-powered coding tools. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.\n\n\n\nPhlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
     "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "Phlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
     "href": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "Phlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
     "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precog.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
     "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
   },
   {
     "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
     "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
-    "title": "AI Powered IDE Alternatives",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
     "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   },
