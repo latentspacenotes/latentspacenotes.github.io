@@ -1,0 +1,40 @@
+---
+title: "AI Powered IDE Alternatives (Part 2)"
+author:
+  - name: Yikes
+    url: https://twitter.com/yikesawjeez
+date: "2024-09-20"
+date-modified: last-modified
+categories: [AI In Action, Dev Tools, IDE]
+image: "alternative-ai-oss-editors.jpg"
+description-meta: "Reviewing Melty, Void, avante.nvim, and other OSS tools."
+card-style: "summary"
+toc: true
+---
+
+# AI In Action | 2024 Week 38
+
+Exploring **Melty**, Void and Aider as alternatives to Cursor, the AI-powered code editor. The session covers comparative analysis for open-source alternatives in the rapidly evolving landscape.
+
+{{< video https://www.youtube.com/watch?v=p-fU0ubjO4s >}}
+
+## Key Takeaways
+
+* Open-source AI coding tools are emerging but still lag behind commercial offerings like Cursor in terms of features, stability, and user experience.
+* Pear appears to be the most promising open-source alternative to Cursor among the VS Code forks.
+* Building and configuring open-source AI coding tools, especially within NeoVim, can be challenging and time-consuming.
+* The community is actively exploring and experimenting with different approaches to integrate AI into coding workflows.
+
+## Events
+
+* **AI Coding Tools Discussion:** The core topic of the meeting is AI coding tools, particularly open-source alternatives to Cursor, a popular AI-powered code editor.
+* **Yikes' Presentation:** Yikes takes the lead and shares his experiences with Melty and Void, two open-source VS Code forks aiming to replicate Cursor's functionality. He demonstrates Melty's basic features, like creating files and commits based on prompts, but encounters bugs and performance issues. He expresses frustration with Cursor's instability and lack of transparency.
+* **Challenges with Open Source Tools:**  Yikes emphasizes that while the concept of open-source Cursor alternatives is exciting, the current state of these projects is immature. He highlights the difficulty of building them from source, limited features, and lack of polish compared to Cursor. He also criticizes Void's reliance on OpenAI's API despite its open-source nature.
+* **NeoVim and Plugins:** Yikes attempts to showcase AI coding plugins within NeoVim (Aider.nvim and Avante.nvim) but runs into configuration problems that hinder the demonstration. 
+* **Comparison and Recommendations:** The discussion turns to comparing Cursor and Pear, another open-source VS Code fork. Phlo acknowledges Cursor's superior user experience and stability but praises Pear for its ease of installation and decent feature set. He ultimately recommends Pear as the most viable open-source option for those seeking a Cursor-like experience.
+* **Call for Speakers:**  Towards the end, KBall encourages other participants to volunteer to lead future sessions, emphasizing that it's an opportunity to learn and share knowledge about specific AI topics.
+* **Conclusion:** The meeting concludes with thanks to Yikes and Phlo and a plan to discuss the next meeting's topic in their Discord channel.
+
+## Overall Impression
+
+This highlights growing interest in open-source AI coding tools, but also the significant gap that exists between them and commercially available options like Cursor. Yikes' technical difficulties, while unfortunate, provided a realistic look at the challenges of working with very early-stage software. The discussion offered valuable insights into the current state of the open-source AI editor landscape.
