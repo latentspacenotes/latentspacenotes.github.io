@@ -1,0 +1,57 @@
+---
+title: "Validating The LLM Validators with Shreya"
+author:
+  - name: Eugene Yan
+    url: https://twitter.com/eugeneyan
+date: "2024-09-25"
+date-modified: last-modified
+categories: [Paper Club, LLMs, Evals]
+image: "who-validates-the-validators-paper-club-llms-to-humans.jpg"
+description-meta: "Evaluating LLM evaluators, with insights from Eugene Yan and guest Shreya Shankar on the EvalGen workflow, challenges in LLM evaluation, and practical tools for alignment."
+card-style: "summary"
+toc: true
+---
+# Paper Club | 2024 Week 39
+
+We discuss the challenges of LLM validators and emphasizing the iterative nature of **defining good evaluation criteria** and aligning LLMs to those criteria.
+
+{{< video https://www.youtube.com/watch?v=4o_ic83U1Kw >}}
+
+## Paper Presentation
+- Eugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria. 
+- He outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:
+    - Prompting for generation and evaluation
+    - Generating criteria based on the prompt
+    - Running criteria through the LLM
+    - Grading sample data
+    - Checking the LLM's alignment with human grading
+- He discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.
+- He presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control.
+
+## Q&A and Discussion
+- Attendees asked questions about:
+    - The meaning of "alignment" in the context of LLM evaluation.
+    - The challenges of maintaining consistency in human grading.
+    - The feasibility of using LLMs as validators in production.
+- Eugene clarified those points and shared his experience from the user study.
+
+## Eugene's Prototype Demo
+- Eugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.
+- He demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.
+- Attendees were impressed and gave positive feedback.
+
+## Discussion with Shreya Shankar
+- Shreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.
+- She discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis.
+
+## Wrap Up
+- The meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley.
+
+## Quotables
+> "When the data and the anecdotes disagree, I tend to trust the anecdotes." - Jeff Bezos quoted by Eugene
+
+Eugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.
+
+> "They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades."
+
+This exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed.
