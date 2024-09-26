@@ -7,11 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yikes">
-<meta name="author" content="Frikster">
-<meta name="dcterms.date" content="2024-08-30">
-<meta name="description" content="AI Research Agents: Sakana’s AI Scientist, Stanford Oval’s Storm, and GPT Researcher, are unique in their ability to generate research ideas and execute experiments, analyze results, and even draft research papers.">
+<meta name="dcterms.date" content="2024-09-20">
+<meta name="description" content="Reviewing Melty, Void, avante.nvim, and other OSS tools.">
 
-<title>AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes</title>
+<title>AI Powered IDE Alternatives (Part 2) – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,13 +83,13 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
+<meta property="og:title" content="AI Powered IDE Alternatives (Part 2) – Latent Space Notes">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/alternative-ai-code-editors/alternative-ai-oss-editors.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="AI Research Agents: Storm, Scientist, and GPTR – Latent Space Notes">
+<meta name="twitter:title" content="AI Powered IDE Alternatives (Part 2) – Latent Space Notes">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/ai-research-agents/ai-agents-research-lab.jpg">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/alternative-ai-code-editors/alternative-ai-oss-editors.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -133,10 +132,11 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">AI Research Agents: Storm, Scientist, and GPTR</h1>
+      <h1 class="title">AI Powered IDE Alternatives (Part 2)</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">AI In Action</div>
-                <div class="quarto-category">Agents</div>
+                <div class="quarto-category">Dev Tools</div>
+                <div class="quarto-category">IDE</div>
               </div>
                   </div>
   </div>
@@ -145,17 +145,16 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
                <p><a href="https://twitter.com/yikesawjeez">Yikes</a> </p>
-               <p>Frikster </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 30, 2024</p>
+        <p class="date">September 20, 2024</p>
       </div>
     </div>
     
@@ -177,15 +176,11 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ai-in-action-2024-week-35" id="toc-ai-in-action-2024-week-35" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-35">AI In Action | 2024 Week 35</a>
+  <li><a href="#ai-in-action-2024-week-38" id="toc-ai-in-action-2024-week-38" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-38">AI In Action | 2024 Week 38</a>
   <ul class="collapse">
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
-  <li><a href="#sakanas-ai-scientist" id="toc-sakanas-ai-scientist" class="nav-link" data-scroll-target="#sakanas-ai-scientist">1. Sakana’s AI Scientist</a></li>
-  <li><a href="#stanford-ovals-storm" id="toc-stanford-ovals-storm" class="nav-link" data-scroll-target="#stanford-ovals-storm">2. Stanford Oval’s Storm</a></li>
-  <li><a href="#gpt-researcher-gptr" id="toc-gpt-researcher-gptr" class="nav-link" data-scroll-target="#gpt-researcher-gptr">3. GPT Researcher (GPTR)</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
-  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events">Events</a></li>
+  <li><a href="#overall-impression" id="toc-overall-impression" class="nav-link" data-scroll-target="#overall-impression">Overall Impression</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -197,78 +192,34 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 
 
 
-<section id="ai-in-action-2024-week-35" class="level1">
-<h1>AI In Action | 2024 Week 35</h1>
-<p>This week’s AI In Action club is focused on <strong>AI research agents</strong>, specifically three tools.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uugW_MogN3M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="ai-in-action-2024-week-38" class="level1">
+<h1>AI In Action | 2024 Week 38</h1>
+<p>Exploring <strong>Melty</strong>, Void and Aider as alternatives to Cursor, the AI-powered code editor. The session covers comparative analysis for open-source alternatives in the rapidly evolving landscape.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/p-fU0ubjO4s" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>AI research agents are evolving rapidly but still require human oversight and critical evaluation.</li>
-<li>They can be helpful tools for brainstorming, getting quick overviews, and discovering potential research avenues.</li>
-<li>Domain expertise remains crucial for effectively leveraging these tools and filtering their output.</li>
+<li>Open-source AI coding tools are emerging but still lag behind commercial offerings like Cursor in terms of features, stability, and user experience.</li>
+<li>Pear appears to be the most promising open-source alternative to Cursor among the VS Code forks.</li>
+<li>Building and configuring open-source AI coding tools, especially within NeoVim, can be challenging and time-consuming.</li>
+<li>The community is actively exploring and experimenting with different approaches to integrate AI into coding workflows.</li>
 </ul>
 </section>
-<section id="sakanas-ai-scientist" class="level2">
-<h2 class="anchored" data-anchor-id="sakanas-ai-scientist">1. Sakana’s AI Scientist</h2>
+<section id="events" class="level2">
+<h2 class="anchored" data-anchor-id="events">Events</h2>
 <ul>
-<li>This agent is unique in that it not only generates research ideas but also designs and executes experiments, analyzes results, and even drafts research papers, all using code.</li>
-<li>Yikesawjeez highlighted its ability to generate entire papers with code and plots, but also pointed out its limitations, such as getting stuck in code editing loops and trying to manipulate experiment duration instead of code efficiency.</li>
-<li>It utilizes templates that users are encouraged to modify, allowing for flexibility in incorporating code, OpenAI, and different data sources.</li>
-<li>It’s considered the most complex of the three agents discussed.</li>
+<li><strong>AI Coding Tools Discussion:</strong> The core topic of the meeting is AI coding tools, particularly open-source alternatives to Cursor, a popular AI-powered code editor.</li>
+<li><strong>Yikes’ Presentation:</strong> Yikes takes the lead and shares his experiences with Melty and Void, two open-source VS Code forks aiming to replicate Cursor’s functionality. He demonstrates Melty’s basic features, like creating files and commits based on prompts, but encounters bugs and performance issues. He expresses frustration with Cursor’s instability and lack of transparency.</li>
+<li><strong>Challenges with Open Source Tools:</strong> Yikes emphasizes that while the concept of open-source Cursor alternatives is exciting, the current state of these projects is immature. He highlights the difficulty of building them from source, limited features, and lack of polish compared to Cursor. He also criticizes Void’s reliance on OpenAI’s API despite its open-source nature.</li>
+<li><strong>NeoVim and Plugins:</strong> Yikes attempts to showcase AI coding plugins within NeoVim (Aider.nvim and Avante.nvim) but runs into configuration problems that hinder the demonstration.</li>
+<li><strong>Comparison and Recommendations:</strong> The discussion turns to comparing Cursor and Pear, another open-source VS Code fork. Phlo acknowledges Cursor’s superior user experience and stability but praises Pear for its ease of installation and decent feature set. He ultimately recommends Pear as the most viable open-source option for those seeking a Cursor-like experience.</li>
+<li><strong>Call for Speakers:</strong> Towards the end, KBall encourages other participants to volunteer to lead future sessions, emphasizing that it’s an opportunity to learn and share knowledge about specific AI topics.</li>
+<li><strong>Conclusion:</strong> The meeting concludes with thanks to Yikes and Phlo and a plan to discuss the next meeting’s topic in their Discord channel.</li>
 </ul>
 </section>
-<section id="stanford-ovals-storm" class="level2">
-<h2 class="anchored" data-anchor-id="stanford-ovals-storm">2. Stanford Oval’s Storm</h2>
-<ul>
-<li>Designed for Wikipedia-style writing, Storm uses a two-stage approach:
-<ul>
-<li><strong>Pre-writing:</strong> Involves multiple agents asking each other questions and using web searches to build an outline. This process is referred to as “perspective-guided question asking.”</li>
-<li><strong>Writing:</strong> A separate agent then uses the outline to write the full article.</li>
-</ul></li>
-<li>It’s implemented in LangChain and is modular, allowing for customization.</li>
-<li>Yikes prefers Storm’s inline citations, similar to Wikipedia, but noted that the links are often inaccurate.</li>
-</ul>
-</section>
-<section id="gpt-researcher-gptr" class="level2">
-<h2 class="anchored" data-anchor-id="gpt-researcher-gptr">3. GPT Researcher (GPTR)</h2>
-<ul>
-<li>Similar to Storm, GPTR also has two agents:
-<ul>
-<li><strong>Planner:</strong> Formulates research questions.</li>
-<li><strong>Researcher:</strong> Accesses the web based on the planner’s questions and synthesizes the information into a report.</li>
-</ul></li>
-<li>It focuses on flexible information retrieval and has a user-friendly interface for tweaking search sources.</li>
-<li>GPTR streams its research process in real-time, allowing for some monitoring, and it plans to include a human-in-the-loop feature for intervention.</li>
-</ul>
-</section>
-<section id="comparison" class="level2">
-<h2 class="anchored" data-anchor-id="comparison">Comparison</h2>
-<ul>
-<li>Both Storm and GPTR have distinct research and writing phases, utilizing multiple agents.</li>
-<li>Storm’s pre-writing phase involves a more interactive and iterative process between agents, while GPTR’s planner simply generates questions.</li>
-<li>AI Scientist, unlike the other two, focuses on generating novel research ideas and experiments rather than summarizing existing information.</li>
-</ul>
-</section>
-<section id="demo" class="level2">
-<h2 class="anchored" data-anchor-id="demo">Demo</h2>
-<ul>
-<li>Yikes demonstrated using GPTR and Storm to research community ambassador programs.</li>
-<li>He highlighted the importance of critically evaluating the output of these agents, as they can often contain inaccurate or outdated information.</li>
-<li>He showcased the Obsidian plugin “Smart Connections” to help cross-reference information and manage context while working with the generated reports.</li>
-</ul>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<ul>
-<li>The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:
-<ul>
-<li>Quickly gaining a shallow understanding of a new topic.</li>
-<li>Brainstorming and exploring new ideas in a familiar domain.</li>
-<li>Discovering overlooked information or research avenues.</li>
-</ul></li>
-<li>They emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification.</li>
-</ul>
+<section id="overall-impression" class="level2">
+<h2 class="anchored" data-anchor-id="overall-impression">Overall Impression</h2>
+<p>This highlights growing interest in open-source AI coding tools, but also the significant gap that exists between them and commercially available options like Cursor. Yikes’ technical difficulties, while unfortunate, provided a realistic look at the challenges of working with very early-stage software. The discussion offered valuable insights into the current state of the open-source AI editor landscape.</p>
 
 
 </section>

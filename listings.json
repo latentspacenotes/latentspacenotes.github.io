@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/alternative-ai-code-editors/index.html",
       "/posts/llm-reasoning-qstar-and-friends/index.html",
       "/posts/ai-powered-ide-alternatives/index.html",
       "/posts/writer-long-context-retrieval/index.html",
