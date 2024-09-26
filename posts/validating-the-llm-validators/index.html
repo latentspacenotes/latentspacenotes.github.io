@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Eugene Yan">
+<meta name="dcterms.date" content="2024-09-25">
+<meta name="description" content="Evaluating LLM evaluators, with insights from Eugene Yan and guest Shreya Shankar on the EvalGen workflow, challenges in LLM evaluation, and practical tools for alignment.">
 
-<title>Posts – Latent Space Notes</title>
+<title>Validating The LLM Validators with Shreya – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YLB46PPRP3"></script>
 
 <script type="text/javascript">
@@ -109,41 +81,16 @@ gtag('js', new Date());
 gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Posts – Latent Space Notes">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Validating The LLM Validators with Shreya – Latent Space Notes">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/validating-the-llm-validators/who-validates-the-validators-paper-club-llms-to-humans.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta name="twitter:title" content="Posts – Latent Space Notes">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Validating The LLM Validators with Shreya – Latent Space Notes">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/validating-the-llm-validators/who-validates-the-validators-paper-club-llms-to-humans.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -153,7 +100,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Latent Space Notes</span>
     </a>
   </div>
@@ -184,314 +131,139 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Posts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Validating The LLM Validators with Shreya</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Paper Club</div>
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Evals</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://twitter.com/eugeneyan">Eugene Yan</a> </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2024</p>
+      </div>
+    </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">September 26, 2024</p>
+      </div>
+    </div>
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="AI In Action">AI In Action <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Agents">Agents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Dev Tools">Dev Tools <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Evals">Evals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(2)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Paper Club">Paper Club <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Reasoning">Reasoning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Retrieval">Retrieval <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#paper-club-2024-week-39" id="toc-paper-club-2024-week-39" class="nav-link active" data-scroll-target="#paper-club-2024-week-39">Paper Club | 2024 Week 39</a>
+  <ul class="collapse">
+  <li><a href="#paper-presentation" id="toc-paper-presentation" class="nav-link" data-scroll-target="#paper-presentation">Paper Presentation</a></li>
+  <li><a href="#qa-and-discussion" id="toc-qa-and-discussion" class="nav-link" data-scroll-target="#qa-and-discussion">Q&amp;A and Discussion</a></li>
+  <li><a href="#eugenes-prototype-demo" id="toc-eugenes-prototype-demo" class="nav-link" data-scroll-target="#eugenes-prototype-demo">Eugene’s Prototype Demo</a></li>
+  <li><a href="#discussion-with-shreya-shankar" id="toc-discussion-with-shreya-shankar" class="nav-link" data-scroll-target="#discussion-with-shreya-shankar">Discussion with Shreya Shankar</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap Up</a></li>
+  <li><a href="#quotables" id="toc-quotables" class="nav-link" data-scroll-target="#quotables">Quotables</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="paper-club-2024-week-39" class="level1">
+<h1>Paper Club | 2024 Week 39</h1>
+<p>We discuss the challenges of LLM validators and emphasizing the iterative nature of <strong>defining good evaluation criteria</strong> and aligning LLMs to those criteria.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/4o_ic83U1Kw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="paper-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="paper-presentation">Paper Presentation</h2>
+<ul>
+<li>Eugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria.</li>
+<li>He outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:
+<ul>
+<li>Prompting for generation and evaluation</li>
+<li>Generating criteria based on the prompt</li>
+<li>Running criteria through the LLM</li>
+<li>Grading sample data</li>
+<li>Checking the LLM’s alignment with human grading</li>
+</ul></li>
+<li>He discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.</li>
+<li>He presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control.</li>
+</ul>
+</section>
+<section id="qa-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="qa-and-discussion">Q&amp;A and Discussion</h2>
+<ul>
+<li>Attendees asked questions about:
+<ul>
+<li>The meaning of “alignment” in the context of LLM evaluation.</li>
+<li>The challenges of maintaining consistency in human grading.</li>
+<li>The feasibility of using LLMs as validators in production.</li>
+</ul></li>
+<li>Eugene clarified those points and shared his experience from the user study.</li>
+</ul>
+</section>
+<section id="eugenes-prototype-demo" class="level2">
+<h2 class="anchored" data-anchor-id="eugenes-prototype-demo">Eugene’s Prototype Demo</h2>
+<ul>
+<li>Eugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.</li>
+<li>He demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.</li>
+<li>Attendees were impressed and gave positive feedback.</li>
+</ul>
+</section>
+<section id="discussion-with-shreya-shankar" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-with-shreya-shankar">Discussion with Shreya Shankar</h2>
+<ul>
+<li>Shreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.</li>
+<li>She discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis.</li>
+</ul>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap Up</h2>
+<ul>
+<li>The meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley.</li>
+</ul>
+</section>
+<section id="quotables" class="level2">
+<h2 class="anchored" data-anchor-id="quotables">Quotables</h2>
+<blockquote class="blockquote">
+<p>“When the data and the anecdotes disagree, I tend to trust the anecdotes.” - Jeff Bezos quoted by Eugene</p>
+</blockquote>
+<p>Eugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.</p>
+<blockquote class="blockquote">
+<p>“They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades.”</p>
+</blockquote>
+<p>This exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Paper Club,LLMs,Evals" data-listing-date-sort="1727222400000" data-listing-file-modified-sort="1727391726017" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="2" data-listing-word-count-sort="376">
-<div class="thumbnail">
-<p><a href="./posts/validating-the-llm-validators/index.html" class="no-external"></a></p><a href="./posts/validating-the-llm-validators/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/validating-the-llm-validators/who-validates-the-validators-paper-club-llms-to-humans.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/validating-the-llm-validators/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/validating-the-llm-validators/index.html" class="no-external">Validating The LLM Validators with Shreya</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/validating-the-llm-validators/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Paper Club'); return false;">
-Paper Club
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Evals'); return false;">
-Evals
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/validating-the-llm-validators/index.html" class="no-external">We discuss the challenges of LLM validators and emphasizing the iterative nature of <strong>defining good evaluation criteria</strong> and aligning LLMs to those criteria.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/validating-the-llm-validators/index.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2024
-</div>
-<div class="listing-author">
-Eugene Yan
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="AI In Action,Dev Tools,IDE" data-listing-date-sort="1726790400000" data-listing-file-modified-sort="1727391726006" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="3" data-listing-word-count-sort="423">
-<div class="thumbnail">
-<p><a href="./posts/alternative-ai-code-editors/index.html" class="no-external"></a></p><a href="./posts/alternative-ai-code-editors/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/alternative-ai-code-editors/alternative-ai-oss-editors.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/alternative-ai-code-editors/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/alternative-ai-code-editors/index.html" class="no-external">AI Powered IDE Alternatives (Part 2)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/alternative-ai-code-editors/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/alternative-ai-code-editors/index.html" class="no-external">Exploring <strong>Melty</strong>, Void and Aider as alternatives to Cursor, the AI-powered code editor. The session covers comparative analysis for open-source alternatives in the rapidly…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/alternative-ai-code-editors/index.html" class="no-external">
-<div class="listing-date">
-Sep 20, 2024
-</div>
-<div class="listing-author">
-Yikes
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Paper Club,Reasoning,LLMs" data-listing-date-sort="1726617600000" data-listing-file-modified-sort="1727391726008" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="3" data-listing-word-count-sort="561">
-<div class="thumbnail">
-<p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a></p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">LLM Reasoning: Q-STaR and Friends</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Paper Club'); return false;">
-Paper Club
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Reasoning'); return false;">
-Reasoning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">This week’s Paper Club is focused on <strong>LLM Reasoning</strong> from the arXiv papers STaR, Quiet-STaR, and V-STaR.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/llm-reasoning-qstar-and-friends/index.html" class="no-external">
-<div class="listing-date">
-Sep 18, 2024
-</div>
-<div class="listing-author">
-Swyx
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="AI In Action,Dev Tools,IDE" data-listing-date-sort="1726185600000" data-listing-file-modified-sort="1727391726003" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="2" data-listing-word-count-sort="363">
-<div class="thumbnail">
-<p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ai-powered-ide-alternatives/ai-powered-ides-pearai.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">AI Powered IDE Alternatives (Part 1)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">An exploration of IDEs, featuring Cursor, PearAI and NeoVim - <strong>AI-powered coding tools</strong>. The session covers comparative analysis, practical demonstrations, and open-source…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ai-powered-ide-alternatives/index.html" class="no-external">
-<div class="listing-date">
-Sep 13, 2024
-</div>
-<div class="listing-author">
-Phlo , Yikes
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Paper Club,Retrieval,LLMs" data-listing-date-sort="1726012800000" data-listing-file-modified-sort="1727391726018" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="2" data-listing-word-count-sort="376">
-<div class="thumbnail">
-<p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a></p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/writer-long-context-retrieval/long-context-retrieval-writing-in-the-margins.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">Long Context Retrieval by Writer</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Paper Club'); return false;">
-Paper Club
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Retrieval'); return false;">
-Retrieval
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">We explore Writing in the Margins, a technique for improving long context retrieval in LLMs. Learn how this method <strong>enhances performance without fine-tuning</strong>, making it easier…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/writer-long-context-retrieval/index.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-<div class="listing-author">
-Umar Jamil, Sam Julien
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="AI In Action,Dev Tools,LLMs" data-listing-date-sort="1725580800000" data-listing-file-modified-sort="1727391726006" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="3" data-listing-word-count-sort="464">
-<div class="thumbnail">
-<p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/langflow-visual-llm-tool/visual-llm-tool-langflow.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">Langflow: A Visual LLM Tool</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dev Tools'); return false;">
-Dev Tools
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">A presentation about Langflow, an open-source tool for building and managing LLM-powered applications using a <strong>visual node-based interface</strong>.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/langflow-visual-llm-tool/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2024
-</div>
-<div class="listing-author">
-Slono
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="AI In Action,Agents" data-listing-date-sort="1724976000000" data-listing-file-modified-sort="1727391726005" data-listing-date-modified-sort="1727391726000" data-listing-reading-time-sort="3" data-listing-word-count-sort="521">
-<div class="thumbnail">
-<p><a href="./posts/ai-research-agents/index.html" class="no-external"></a></p><a href="./posts/ai-research-agents/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ai-research-agents/ai-agents-research-lab.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/ai-research-agents/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ai-research-agents/index.html" class="no-external">AI Research Agents: Storm, Scientist, and GPTR</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ai-research-agents/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI In Action'); return false;">
-AI In Action
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Agents'); return false;">
-Agents
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ai-research-agents/index.html" class="no-external">This week’s AI In Action club is focused on <strong>AI research agents</strong>, specifically three tools.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ai-research-agents/index.html" class="no-external">
-<div class="listing-date">
-Aug 30, 2024
-</div>
-<div class="listing-author">
-Yikes , Frikster
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
