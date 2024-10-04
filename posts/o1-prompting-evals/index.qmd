@@ -1,0 +1,44 @@
+---
+title: "Evaluating o1-preview for prompt injection"
+author:
+  - name: Baruch
+    url: https://twitter.com/BobbySamuels
+date: "2024-09-27"
+date-modified: last-modified
+categories: [AI In Action, LLMs, Evals]
+image: "prompt-evals-with-o1.jpg"
+description-meta: "Evaluating and improving prompts for detecting prompt injections in large language models, using iterative testing and analysis with OAI's new model o1-preview."
+card-style: "summary"
+toc: true
+---
+
+# AI In Action | 2024 Week 39
+
+Baruch iteratively tests different prompt versions using OpenAI's **new o1-preview model**, analyzing results and refining the prompts to identify potential security risks.
+
+{{< video https://www.youtube.com/watch?v=ONc7UbCbao0 >}}
+
+The livestream recording shows Baruch coding and experimenting with large language models (LLMs), specifically focusing on prompt engineering and evaluating prompt injections.
+
+## Goal
+
+Baruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts.
+
+## Process
+
+1. **Initial Setup:** He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.
+2. **Analysis and Iteration:** He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI's GPT models and Claude) to suggest improvements. 
+3. **Experimentation with Different Prompts:** He experiments with various modifications to the prompt, including:
+    - Adding specific instructions.
+    - Incorporating chain-of-thought prompting to get reasoning behind the LLM's classifications.
+    - Trying different LLMs (GPT-4, Claude) for generating and evaluating prompts.
+4. **Evaluation:** He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.
+5. **Challenges:** He encounters several challenges during the process, including:
+    - Caching issues with Braintrust
+    - Difficulty in analyzing the LLM's outputs, particularly when only getting a binary classification (0 or 1) without explanations.
+    - Finding the optimal way to prompt the LLMs for suggestions and improvements.
+
+## Outcome
+
+Baruch manages to iteratively improve the prompt for detecting prompt injections, achieving better results than the initial version. He acknowledges that there is still room for improvement, suggesting future directions like incorporating explanation generation and exploring fine-tuned models for more robust detection.
+
