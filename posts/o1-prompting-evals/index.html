@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Swyx">
-<meta name="dcterms.date" content="2024-09-18">
-<meta name="description" content="Paper Club livestream led by Swyx, focused on AI reasoning papers, particularly STaR and its successors (Quiet-STaR &amp; V-STaR), potentially relevant to OpenAI’s o1 model.">
+<meta name="author" content="Baruch">
+<meta name="dcterms.date" content="2024-09-27">
+<meta name="description" content="Evaluating and improving prompts for detecting prompt injections in large language models, using iterative testing and analysis with OAI’s new model o1-preview.">
 
-<title>LLM Reasoning: Q-STaR and Friends – Latent Space Notes</title>
+<title>Evaluating o1-preview for prompt injection – Latent Space Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,17 +83,13 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="LLM Reasoning: Q-STaR and Friends – Latent Space Notes">
+<meta property="og:title" content="Evaluating o1-preview for prompt injection – Latent Space Notes">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://latentspacenotes.github.io/posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png">
+<meta property="og:image" content="https://latentspacenotes.github.io/posts/o1-prompting-evals/prompt-evals-with-o1.jpg">
 <meta property="og:site_name" content="Latent Space Notes">
-<meta property="og:image:height" content="808">
-<meta property="og:image:width" content="1440">
-<meta name="twitter:title" content="LLM Reasoning: Q-STaR and Friends – Latent Space Notes">
+<meta name="twitter:title" content="Evaluating o1-preview for prompt injection – Latent Space Notes">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/llm-reasoning-qstar-and-friends/latent-space-paper-club-reasoning-qstar-paper.png">
-<meta name="twitter:image-height" content="808">
-<meta name="twitter:image-width" content="1440">
+<meta name="twitter:image" content="https://latentspacenotes.github.io/posts/o1-prompting-evals/prompt-evals-with-o1.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -136,11 +132,11 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">LLM Reasoning: Q-STaR and Friends</h1>
+      <h1 class="title">Evaluating o1-preview for prompt injection</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Paper Club</div>
-                <div class="quarto-category">Reasoning</div>
+                <div class="quarto-category">AI In Action</div>
                 <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Evals</div>
               </div>
                   </div>
   </div>
@@ -151,14 +147,14 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p><a href="https://twitter.com/swyx">Swyx</a> </p>
+               <p><a href="https://twitter.com/BobbySamuels">Baruch</a> </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 18, 2024</p>
+        <p class="date">September 27, 2024</p>
       </div>
     </div>
     
@@ -180,15 +176,11 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#paper-club-2024-week-38" id="toc-paper-club-2024-week-38" class="nav-link active" data-scroll-target="#paper-club-2024-week-38">Paper Club | 2024 Week 38</a>
+  <li><a href="#ai-in-action-2024-week-39" id="toc-ai-in-action-2024-week-39" class="nav-link active" data-scroll-target="#ai-in-action-2024-week-39">AI In Action | 2024 Week 39</a>
   <ul class="collapse">
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
-  <li><a href="#introduction-paper-stack" id="toc-introduction-paper-stack" class="nav-link" data-scroll-target="#introduction-paper-stack">Introduction &amp; Paper Stack</a></li>
-  <li><a href="#star-paper-discussion-begins" id="toc-star-paper-discussion-begins" class="nav-link" data-scroll-target="#star-paper-discussion-begins">STaR Paper Discussion Begins</a></li>
-  <li><a href="#quiet-star-v-star" id="toc-quiet-star-v-star" class="nav-link" data-scroll-target="#quiet-star-v-star">Quiet-STaR &amp; V-STaR</a></li>
-  <li><a href="#closing-discussion-future-papers" id="toc-closing-discussion-future-papers" class="nav-link" data-scroll-target="#closing-discussion-future-papers">Closing Discussion &amp; Future Papers</a></li>
-  <li><a href="#favorite-quote" id="toc-favorite-quote" class="nav-link" data-scroll-target="#favorite-quote">Favorite Quote</a></li>
-  <li><a href="#ideas-to-explore" id="toc-ideas-to-explore" class="nav-link" data-scroll-target="#ideas-to-explore">Ideas to Explore</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a></li>
+  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome">Outcome</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -200,59 +192,38 @@ gtag('config', 'G-YLB46PPRP3', { 'anonymize_ip': true});
 
 
 
-<section id="paper-club-2024-week-38" class="level1">
-<h1>Paper Club | 2024 Week 38</h1>
-<p>This week’s Paper Club is focused on <strong>LLM Reasoning</strong> from the arXiv papers STaR, Quiet-STaR, and V-STaR.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Y5-FeaFOEFM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<section id="ai-in-action-2024-week-39" class="level1">
+<h1>AI In Action | 2024 Week 39</h1>
+<p>Baruch iteratively tests different prompt versions using OpenAI’s <strong>new o1-preview model</strong>, analyzing results and refining the prompts to identify potential security risks.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ONc7UbCbao0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The livestream recording shows Baruch coding and experimenting with large language models (LLMs), specifically focusing on prompt engineering and evaluating prompt injections.</p>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
+<p>Baruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts.</p>
+</section>
+<section id="process" class="level2">
+<h2 class="anchored" data-anchor-id="process">Process</h2>
+<ol type="1">
+<li><strong>Initial Setup:</strong> He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.</li>
+<li><strong>Analysis and Iteration:</strong> He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI’s GPT models and Claude) to suggest improvements.</li>
+<li><strong>Experimentation with Different Prompts:</strong> He experiments with various modifications to the prompt, including:
 <ul>
-<li>The livestream focused on the evolution of AI reasoning techniques, starting with STaR and highlighting the growing importance of verifier models (like V-STaR).</li>
-<li>Participants actively debated the practicality, scalability, and potential applications of these methods beyond math and code domains.</li>
-<li>Swyx provided his expert analysis and emphasized the interconnectedness of various research areas in the quest for better AI reasoning, that may have potentially led to OpenAI’s o1 model.</li>
-<li>These sessions serve as a valuable learning experience and a platform for collaborative exploration of cutting-edge AI research.</li>
-</ul>
-</section>
-<section id="introduction-paper-stack" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-paper-stack">Introduction &amp; Paper Stack</h2>
-<p>Swyx shares slides and introduces the focus: STaR and related papers. He emphasizes the bigger picture of reasoning research, suggesting a “stack” of influential papers, including Q-learning, MCST, synthetic data, process models, and verifiers, culminating in o1. Participants contribute their insights and alternative paper stacks. The importance of curriculum learning in AI (as exemplified in the Voyager paper) is acknowledged.</p>
-</section>
-<section id="star-paper-discussion-begins" class="level2">
-<h2 class="anchored" data-anchor-id="star-paper-discussion-begins">STaR Paper Discussion Begins</h2>
+<li>Adding specific instructions.</li>
+<li>Incorporating chain-of-thought prompting to get reasoning behind the LLM’s classifications.</li>
+<li>Trying different LLMs (GPT-4, Claude) for generating and evaluating prompts.</li>
+</ul></li>
+<li><strong>Evaluation:</strong> He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.</li>
+<li><strong>Challenges:</strong> He encounters several challenges during the process, including:
 <ul>
-<li>Swyx dives into the 2022 <strong>STaR</strong> paper (<a href="https://arxiv.org/abs/2203.14465">2203.14465</a>), emphasizing its focus on generating rationales for answers, similar to chain-of-thought prompting. He explains the concept of “rationalization” to address LLM looping, noting its positive impact on the training process.</li>
-<li>Swyx points out the paper’s lack of detailed examples and methodology, making reproducibility difficult.</li>
-<li>The group analyzes specific examples from the paper, involving logical reasoning and math word problems, demonstrating how STaR generates human-like reasoning traces. They discuss the model’s ability to correct errors in human-annotated datasets (GSM8K).</li>
-<li>Participants engage in a lively discussion about STaR’s limitations, its potential applications beyond math and code, and the role of synthetic data. Swyx highlights the paper’s value in establishing a framework for understanding and improving LLM reasoning.</li>
-</ul>
+<li>Caching issues with Braintrust</li>
+<li>Difficulty in analyzing the LLM’s outputs, particularly when only getting a binary classification (0 or 1) without explanations.</li>
+<li>Finding the optimal way to prompt the LLMs for suggestions and improvements.</li>
+</ul></li>
+</ol>
 </section>
-<section id="quiet-star-v-star" class="level2">
-<h2 class="anchored" data-anchor-id="quiet-star-v-star">Quiet-STaR &amp; V-STaR</h2>
-<ul>
-<li>Swyx critiques <strong>Quiet-STaR</strong> (<a href="https://arxiv.org/abs/2403.09629">2403.09629</a>), the follow-up paper by the same author, for attempting to generate rationales at every token (inspired by the “Think Before You Speak” paper), deeming it impractical and offering minimal improvements.</li>
-<li>He then presents <strong>V-STaR</strong> (<a href="https://arxiv.org/abs/2402.06457">2402.06457</a>), a different approach by another author, which leverages both correct and incorrect solutions to train a “verifier” model using DPO. This verifier selects the most probable solution among candidates, demonstrating significant improvements over STaR and majority voting.<br>
-</li>
-<li>The discussion centers around the potential benefits and limitations of training separate verifier models, and their role in production environments. Swyx expresses his preference for V-STaR over Quiet-STaR due to its practicality and performance.</li>
-</ul>
-</section>
-<section id="closing-discussion-future-papers" class="level2">
-<h2 class="anchored" data-anchor-id="closing-discussion-future-papers">Closing Discussion &amp; Future Papers</h2>
-<p>The session ends with participants discussing the generation of training data with reasoning traces, the use of synthetic data, diversity in reasoning paths, and the importance of LLM evaluators. Future Paper Club sessions are planned, focusing on “Validating the Validators,” MCST (Monte Carlo Search Tree), and other papers in the reasoning domain.</p>
-</section>
-<section id="favorite-quote" class="level2">
-<h2 class="anchored" data-anchor-id="favorite-quote">Favorite Quote</h2>
-<blockquote class="blockquote">
-<p>“And I like that idea that we can deploy this and not have to […] hope that we can fine tune it into the base model. This ties in a lot with the ‘Let’s verify step by step’ from OpenAI.” - Swyx (0:45:33)</p>
-</blockquote>
-<p>Swyx strongly advocates for V-STaR’s approach of training separate verifier models, suggesting it is superior to integrated solutions.</p>
-</section>
-<section id="ideas-to-explore" class="level2">
-<h2 class="anchored" data-anchor-id="ideas-to-explore">Ideas to Explore</h2>
-<ul>
-<li>Generalizing STaR beyond math and code</li>
-<li>The utility and deployment of separate verifier models</li>
-<li>The viability of “Thinking Tokens”</li>
-</ul>
+<section id="outcome" class="level2">
+<h2 class="anchored" data-anchor-id="outcome">Outcome</h2>
+<p>Baruch manages to iteratively improve the prompt for detecting prompt injections, achieving better results than the initial version. He acknowledges that there is still room for improvement, suggesting future directions like incorporating explanation generation and exploring fine-tuned models for more robust detection.</p>
 
 
 </section>

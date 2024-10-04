@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/o1-prompting-evals/index.html",
       "/posts/validating-the-llm-validators/index.html",
       "/posts/alternative-ai-code-editors/index.html",
       "/posts/llm-reasoning-qstar-and-friends/index.html",
