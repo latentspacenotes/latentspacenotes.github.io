@@ -1,131 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html",
-    "href": "posts/validating-the-llm-validators/index.html",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "We discuss the challenges of LLM validators and emphasizing the iterative nature of defining good evaluation criteria and aligning LLMs to those criteria.\n\n\n\n\nEugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria.\nHe outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:\n\nPrompting for generation and evaluation\nGenerating criteria based on the prompt\nRunning criteria through the LLM\nGrading sample data\nChecking the LLM’s alignment with human grading\n\nHe discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.\nHe presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control.\n\n\n\n\n\nAttendees asked questions about:\n\nThe meaning of “alignment” in the context of LLM evaluation.\nThe challenges of maintaining consistency in human grading.\nThe feasibility of using LLMs as validators in production.\n\nEugene clarified those points and shared his experience from the user study.\n\n\n\n\n\nEugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.\nHe demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.\nAttendees were impressed and gave positive feedback.\n\n\n\n\n\nShreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.\nShe discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis.\n\n\n\n\n\nThe meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley.\n\n\n\n\n\n“When the data and the anecdotes disagree, I tend to trust the anecdotes.” - Jeff Bezos quoted by Eugene\n\nEugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.\n\n“They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades.”\n\nThis exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#paper-presentation",
-    "href": "posts/validating-the-llm-validators/index.html#paper-presentation",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "Eugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria.\nHe outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:\n\nPrompting for generation and evaluation\nGenerating criteria based on the prompt\nRunning criteria through the LLM\nGrading sample data\nChecking the LLM’s alignment with human grading\n\nHe discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.\nHe presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#qa-and-discussion",
-    "href": "posts/validating-the-llm-validators/index.html#qa-and-discussion",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "Attendees asked questions about:\n\nThe meaning of “alignment” in the context of LLM evaluation.\nThe challenges of maintaining consistency in human grading.\nThe feasibility of using LLMs as validators in production.\n\nEugene clarified those points and shared his experience from the user study."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#eugenes-prototype-demo",
-    "href": "posts/validating-the-llm-validators/index.html#eugenes-prototype-demo",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "Eugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.\nHe demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.\nAttendees were impressed and gave positive feedback."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#discussion-with-shreya-shankar",
-    "href": "posts/validating-the-llm-validators/index.html#discussion-with-shreya-shankar",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "Shreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.\nShe discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#wrap-up",
-    "href": "posts/validating-the-llm-validators/index.html#wrap-up",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "The meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley."
-  },
-  {
-    "objectID": "posts/validating-the-llm-validators/index.html#quotables",
-    "href": "posts/validating-the-llm-validators/index.html#quotables",
-    "title": "Validating The LLM Validators with Shreya",
-    "section": "",
-    "text": "“When the data and the anecdotes disagree, I tend to trust the anecdotes.” - Jeff Bezos quoted by Eugene\n\nEugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.\n\n“They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades.”\n\nThis exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed."
-  },
-  {
-    "objectID": "posts/o1-prompting-evals/index.html",
-    "href": "posts/o1-prompting-evals/index.html",
-    "title": "Evaluating o1-preview for prompt injection",
-    "section": "",
-    "text": "Baruch iteratively tests different prompt versions using OpenAI’s new o1-preview model, analyzing results and refining the prompts to identify potential security risks.\n\n\n\nBaruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts.\n\n\n\n\nInitial Setup: He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.\nAnalysis and Iteration: He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI’s GPT models and Claude) to suggest improvements.\nExperimentation with Different Prompts: He experiments with various modifications to the prompt, including:\n\nAdding specific instructions.\nIncorporating chain-of-thought prompting to get reasoning behind the LLM’s classifications.\nTrying different LLMs (GPT-4, Claude) for generating and evaluating prompts.\n\nEvaluation: He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.\nChallenges: He encounters several challenges during the process, including:\n\nCaching issues with Braintrust\nDifficulty in analyzing the LLM’s outputs, particularly when only getting a binary classification (0 or 1) without explanations.\nFinding the optimal way to prompt the LLMs for suggestions and improvements.\n\n\n\n\n\n\nPrompt engineering for prompt injection detection is an iterative process. The process demonstrated that finding an effective prompt requires repeated refinement based on evaluation results, experimentation, and analysis.\nLLMs can assist in prompt creation and improvement. Using GPT-4 to suggest improvements based on failure examples proved somewhat helpful, showcasing the potential of LLMs in prompt engineering.\nEvaluating prompt effectiveness requires a robust dataset and clear metrics. The use of a dataset and Google Sheets to track performance highlighted the importance of systematic evaluation. BrainTrust was also employed, though its caching issues proved problematic.\nChain-of-thought prompting can provide insights, but isn’t guaranteed to improve accuracy. While attempts were made to use chain-of-thought to understand the LLM’s reasoning, it didn’t significantly improve the prompt’s performance in this case.\nThere’s a balance between prompt complexity and effectiveness. Experiments with different prompt lengths and complexities revealed that a longer, more detailed prompt performed well but wasn’t necessarily the best approach. Simpler prompts were also evaluated.\nPrompt injection detection is a challenging problem. Even with iterative refinement and advanced prompting techniques, difficulties were still encountered, suggesting that robust prompt injection detection requires ongoing research and development.\nPractical prompt engineering involves troubleshooting and working around limitations. Various technical issues were encountered, such as BrainTrust caching problems and OpenAI parameter adjustments, demonstrating the real-world challenges of working with LLMs."
-  },
-  {
-    "objectID": "posts/o1-prompting-evals/index.html#goal",
-    "href": "posts/o1-prompting-evals/index.html#goal",
-    "title": "Evaluating o1-preview for prompt injection",
-    "section": "",
-    "text": "Baruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts."
-  },
-  {
-    "objectID": "posts/o1-prompting-evals/index.html#process",
-    "href": "posts/o1-prompting-evals/index.html#process",
-    "title": "Evaluating o1-preview for prompt injection",
-    "section": "",
-    "text": "Initial Setup: He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.\nAnalysis and Iteration: He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI’s GPT models and Claude) to suggest improvements.\nExperimentation with Different Prompts: He experiments with various modifications to the prompt, including:\n\nAdding specific instructions.\nIncorporating chain-of-thought prompting to get reasoning behind the LLM’s classifications.\nTrying different LLMs (GPT-4, Claude) for generating and evaluating prompts.\n\nEvaluation: He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.\nChallenges: He encounters several challenges during the process, including:\n\nCaching issues with Braintrust\nDifficulty in analyzing the LLM’s outputs, particularly when only getting a binary classification (0 or 1) without explanations.\nFinding the optimal way to prompt the LLMs for suggestions and improvements."
-  },
-  {
-    "objectID": "posts/o1-prompting-evals/index.html#key-takeaways",
-    "href": "posts/o1-prompting-evals/index.html#key-takeaways",
-    "title": "Evaluating o1-preview for prompt injection",
-    "section": "",
-    "text": "Prompt engineering for prompt injection detection is an iterative process. The process demonstrated that finding an effective prompt requires repeated refinement based on evaluation results, experimentation, and analysis.\nLLMs can assist in prompt creation and improvement. Using GPT-4 to suggest improvements based on failure examples proved somewhat helpful, showcasing the potential of LLMs in prompt engineering.\nEvaluating prompt effectiveness requires a robust dataset and clear metrics. The use of a dataset and Google Sheets to track performance highlighted the importance of systematic evaluation. BrainTrust was also employed, though its caching issues proved problematic.\nChain-of-thought prompting can provide insights, but isn’t guaranteed to improve accuracy. While attempts were made to use chain-of-thought to understand the LLM’s reasoning, it didn’t significantly improve the prompt’s performance in this case.\nThere’s a balance between prompt complexity and effectiveness. Experiments with different prompt lengths and complexities revealed that a longer, more detailed prompt performed well but wasn’t necessarily the best approach. Simpler prompts were also evaluated.\nPrompt injection detection is a challenging problem. Even with iterative refinement and advanced prompting techniques, difficulties were still encountered, suggesting that robust prompt injection detection requires ongoing research and development.\nPractical prompt engineering involves troubleshooting and working around limitations. Various technical issues were encountered, such as BrainTrust caching problems and OpenAI parameter adjustments, demonstrating the real-world challenges of working with LLMs."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html",
-    "href": "posts/ai-powered-ide-alternatives/index.html",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "An exploration of IDEs, featuring Cursor, PearAI and NeoVim - AI-powered coding tools. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.\n\n\n\nPhlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precognition.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "Phlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
-    "href": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "Phlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precognition.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
-    "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
-  },
-  {
-    "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
-    "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
-    "title": "AI Powered IDE Alternatives (Part 1)",
-    "section": "",
-    "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
-  },
-  {
     "objectID": "posts/ai-research-agents/index.html",
     "href": "posts/ai-research-agents/index.html",
     "title": "AI Research Agents: Storm, Scientist, and GPTR",
@@ -182,11 +56,60 @@
     "text": "The presenters and audience agreed that while these AI research agents are still in their early stages and often produce flawed outputs, they can be valuable tools for:\n\nQuickly gaining a shallow understanding of a new topic.\nBrainstorming and exploring new ideas in a familiar domain.\nDiscovering overlooked information or research avenues.\n\nThey emphasized the importance of treating the output as a “drunk intern’s work,” requiring careful review and verification."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Posts",
+    "objectID": "posts/langflow-visual-llm-tool/index.html",
+    "href": "posts/langflow-visual-llm-tool/index.html",
+    "title": "Langflow: A Visual LLM Tool",
     "section": "",
-    "text": "Evaluating o1-preview for prompt injection\n\n\n\n\n\n\nAI In Action\n\n\nLLMs\n\n\nEvals\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nBaruch\n\n\n\n\n\n\n\n\n\n\n\n\nValidating The LLM Validators with Shreya\n\n\n\n\n\n\nPaper Club\n\n\nLLMs\n\n\nEvals\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nEugene Yan\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives (Part 2)\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nYikes\n\n\n\n\n\n\n\n\n\n\n\n\nLLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives (Part 1)\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLong Context Retrieval by Writer\n\n\n\n\n\n\nPaper Club\n\n\nRetrieval\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nUmar Jamil, Sam Julien\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
+    "text": "A presentation about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.\n\n\n\n\nLangflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.\n\n\n\n\nDuring the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.\n\n\n\n\nSlono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
+    "href": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "Langflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#qa",
+    "href": "posts/langflow-visual-llm-tool/index.html#qa",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "During the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks."
+  },
+  {
+    "objectID": "posts/langflow-visual-llm-tool/index.html#summary",
+    "href": "posts/langflow-visual-llm-tool/index.html#summary",
+    "title": "Langflow: A Visual LLM Tool",
+    "section": "",
+    "text": "Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
+  },
+  {
+    "objectID": "posts/o1-prompting-evals/index.html",
+    "href": "posts/o1-prompting-evals/index.html",
+    "title": "Evaluating o1-preview for prompt injection",
+    "section": "",
+    "text": "Baruch iteratively tests different prompt versions using OpenAI’s new o1-preview model, analyzing results and refining the prompts to identify potential security risks.\n\n\n\nBaruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts.\n\n\n\n\nInitial Setup: He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.\nAnalysis and Iteration: He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI’s GPT models and Claude) to suggest improvements.\nExperimentation with Different Prompts: He experiments with various modifications to the prompt, including:\n\nAdding specific instructions.\nIncorporating chain-of-thought prompting to get reasoning behind the LLM’s classifications.\nTrying different LLMs (GPT-4, Claude) for generating and evaluating prompts.\n\nEvaluation: He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.\nChallenges: He encounters several challenges during the process, including:\n\nCaching issues with Braintrust\nDifficulty in analyzing the LLM’s outputs, particularly when only getting a binary classification (0 or 1) without explanations.\nFinding the optimal way to prompt the LLMs for suggestions and improvements.\n\n\n\n\n\n\nPrompt engineering for prompt injection detection is an iterative process. The process demonstrated that finding an effective prompt requires repeated refinement based on evaluation results, experimentation, and analysis.\nLLMs can assist in prompt creation and improvement. Using GPT-4 to suggest improvements based on failure examples proved somewhat helpful, showcasing the potential of LLMs in prompt engineering.\nEvaluating prompt effectiveness requires a robust dataset and clear metrics. The use of a dataset and Google Sheets to track performance highlighted the importance of systematic evaluation. BrainTrust was also employed, though its caching issues proved problematic.\nChain-of-thought prompting can provide insights, but isn’t guaranteed to improve accuracy. While attempts were made to use chain-of-thought to understand the LLM’s reasoning, it didn’t significantly improve the prompt’s performance in this case.\nThere’s a balance between prompt complexity and effectiveness. Experiments with different prompt lengths and complexities revealed that a longer, more detailed prompt performed well but wasn’t necessarily the best approach. Simpler prompts were also evaluated.\nPrompt injection detection is a challenging problem. Even with iterative refinement and advanced prompting techniques, difficulties were still encountered, suggesting that robust prompt injection detection requires ongoing research and development.\nPractical prompt engineering involves troubleshooting and working around limitations. Various technical issues were encountered, such as BrainTrust caching problems and OpenAI parameter adjustments, demonstrating the real-world challenges of working with LLMs."
+  },
+  {
+    "objectID": "posts/o1-prompting-evals/index.html#goal",
+    "href": "posts/o1-prompting-evals/index.html#goal",
+    "title": "Evaluating o1-preview for prompt injection",
+    "section": "",
+    "text": "Baruch aims to improve a prompt designed to detect prompt injections in other LLMs. He is using a dataset to evaluate the effectiveness of his prompts."
+  },
+  {
+    "objectID": "posts/o1-prompting-evals/index.html#process",
+    "href": "posts/o1-prompting-evals/index.html#process",
+    "title": "Evaluating o1-preview for prompt injection",
+    "section": "",
+    "text": "Initial Setup: He starts by running an existing prompt on a dataset and evaluating its performance using a Google Sheet to track results.\nAnalysis and Iteration: He analyzes the results, identifies weaknesses in the prompt (e.g., being too permissive with certain types of injections), and uses LLMs (like OpenAI’s GPT models and Claude) to suggest improvements.\nExperimentation with Different Prompts: He experiments with various modifications to the prompt, including:\n\nAdding specific instructions.\nIncorporating chain-of-thought prompting to get reasoning behind the LLM’s classifications.\nTrying different LLMs (GPT-4, Claude) for generating and evaluating prompts.\n\nEvaluation: He continuously evaluates the performance of each modified prompt by running it on the dataset and comparing its accuracy against previous versions. He looks for improvements and regressions in identifying prompt injections.\nChallenges: He encounters several challenges during the process, including:\n\nCaching issues with Braintrust\nDifficulty in analyzing the LLM’s outputs, particularly when only getting a binary classification (0 or 1) without explanations.\nFinding the optimal way to prompt the LLMs for suggestions and improvements."
+  },
+  {
+    "objectID": "posts/o1-prompting-evals/index.html#key-takeaways",
+    "href": "posts/o1-prompting-evals/index.html#key-takeaways",
+    "title": "Evaluating o1-preview for prompt injection",
+    "section": "",
+    "text": "Prompt engineering for prompt injection detection is an iterative process. The process demonstrated that finding an effective prompt requires repeated refinement based on evaluation results, experimentation, and analysis.\nLLMs can assist in prompt creation and improvement. Using GPT-4 to suggest improvements based on failure examples proved somewhat helpful, showcasing the potential of LLMs in prompt engineering.\nEvaluating prompt effectiveness requires a robust dataset and clear metrics. The use of a dataset and Google Sheets to track performance highlighted the importance of systematic evaluation. BrainTrust was also employed, though its caching issues proved problematic.\nChain-of-thought prompting can provide insights, but isn’t guaranteed to improve accuracy. While attempts were made to use chain-of-thought to understand the LLM’s reasoning, it didn’t significantly improve the prompt’s performance in this case.\nThere’s a balance between prompt complexity and effectiveness. Experiments with different prompt lengths and complexities revealed that a longer, more detailed prompt performed well but wasn’t necessarily the best approach. Simpler prompts were also evaluated.\nPrompt injection detection is a challenging problem. Even with iterative refinement and advanced prompting techniques, difficulties were still encountered, suggesting that robust prompt injection detection requires ongoing research and development.\nPractical prompt engineering involves troubleshooting and working around limitations. Various technical issues were encountered, such as BrainTrust caching problems and OpenAI parameter adjustments, demonstrating the real-world challenges of working with LLMs."
   },
   {
     "objectID": "posts/llm-reasoning-qstar-and-friends/index.html",
@@ -245,6 +168,20 @@
     "text": "Generalizing STaR beyond math and code\nThe utility and deployment of separate verifier models\nThe viability of “Thinking Tokens”"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Evaluating o1-preview for prompt injection\n\n\n\n\n\n\nAI In Action\n\n\nLLMs\n\n\nEvals\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nBaruch\n\n\n\n\n\n\n\n\n\n\n\n\nValidating The LLM Validators with Shreya\n\n\n\n\n\n\nPaper Club\n\n\nLLMs\n\n\nEvals\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nEugene Yan\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives (Part 2)\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nYikes\n\n\n\n\n\n\n\n\n\n\n\n\nLLM Reasoning: Q-STaR and Friends\n\n\n\n\n\n\nPaper Club\n\n\nReasoning\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 18, 2024\n\n\nSwyx\n\n\n\n\n\n\n\n\n\n\n\n\nAI Powered IDE Alternatives (Part 1)\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nIDE\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nPhlo , Yikes\n\n\n\n\n\n\n\n\n\n\n\n\nLong Context Retrieval by Writer\n\n\n\n\n\n\nPaper Club\n\n\nRetrieval\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nUmar Jamil, Sam Julien\n\n\n\n\n\n\n\n\n\n\n\n\nLangflow: A Visual LLM Tool\n\n\n\n\n\n\nAI In Action\n\n\nDev Tools\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nSep 6, 2024\n\n\nSlono\n\n\n\n\n\n\n\n\n\n\n\n\nAI Research Agents: Storm, Scientist, and GPTR\n\n\n\n\n\n\nAI In Action\n\n\nAgents\n\n\n\n\n\n\n\n\n\nAug 30, 2024\n\n\nYikes , Frikster\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
     "objectID": "posts/alternative-ai-code-editors/index.html",
     "href": "posts/alternative-ai-code-editors/index.html",
     "title": "AI Powered IDE Alternatives (Part 2)",
@@ -271,6 +208,55 @@
     "title": "AI Powered IDE Alternatives (Part 2)",
     "section": "",
     "text": "This highlights growing interest in open-source AI coding tools, but also the significant gap that exists between them and commercially available options like Cursor. Yikes’ technical difficulties, while unfortunate, provided a realistic look at the challenges of working with very early-stage software. The discussion offered valuable insights into the current state of the open-source AI editor landscape."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html",
+    "href": "posts/validating-the-llm-validators/index.html",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "We discuss the challenges of LLM validators and emphasizing the iterative nature of defining good evaluation criteria and aligning LLMs to those criteria.\n\n\n\n\nEugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria.\nHe outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:\n\nPrompting for generation and evaluation\nGenerating criteria based on the prompt\nRunning criteria through the LLM\nGrading sample data\nChecking the LLM’s alignment with human grading\n\nHe discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.\nHe presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control.\n\n\n\n\n\nAttendees asked questions about:\n\nThe meaning of “alignment” in the context of LLM evaluation.\nThe challenges of maintaining consistency in human grading.\nThe feasibility of using LLMs as validators in production.\n\nEugene clarified those points and shared his experience from the user study.\n\n\n\n\n\nEugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.\nHe demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.\nAttendees were impressed and gave positive feedback.\n\n\n\n\n\nShreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.\nShe discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis.\n\n\n\n\n\nThe meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley.\n\n\n\n\n\n“When the data and the anecdotes disagree, I tend to trust the anecdotes.” - Jeff Bezos quoted by Eugene\n\nEugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.\n\n“They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades.”\n\nThis exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#paper-presentation",
+    "href": "posts/validating-the-llm-validators/index.html#paper-presentation",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "Eugene explained the core idea: Evaluating LLMs requires looking at data first before setting criteria.\nHe outlined the EvalGen design, a workflow to assist developers in creating LLM evaluators. It involves:\n\nPrompting for generation and evaluation\nGenerating criteria based on the prompt\nRunning criteria through the LLM\nGrading sample data\nChecking the LLM’s alignment with human grading\n\nHe discussed the results of using EvalGen, highlighting its advantages over previous methods like SPADE.\nHe presented the findings of a user study with industry practitioners, emphasizing the importance of feedback loops and user control."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#qa-and-discussion",
+    "href": "posts/validating-the-llm-validators/index.html#qa-and-discussion",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "Attendees asked questions about:\n\nThe meaning of “alignment” in the context of LLM evaluation.\nThe challenges of maintaining consistency in human grading.\nThe feasibility of using LLMs as validators in production.\n\nEugene clarified those points and shared his experience from the user study."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#eugenes-prototype-demo",
+    "href": "posts/validating-the-llm-validators/index.html#eugenes-prototype-demo",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "Eugene showcased a prototype he built to facilitate data labeling, evaluation, and prompt optimization.\nHe demonstrated the labeling mode, evaluation mode, and optimization mode of his tool.\nAttendees were impressed and gave positive feedback."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#discussion-with-shreya-shankar",
+    "href": "posts/validating-the-llm-validators/index.html#discussion-with-shreya-shankar",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "Shreya joined the meeting and answered a question about incorporating natural language feedback in the EvalGen workflow.\nShe discussed how good task decomposition impacts evaluation, suggesting evaluating each component separately and performing bottleneck analysis."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#wrap-up",
+    "href": "posts/validating-the-llm-validators/index.html#wrap-up",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "The meeting ended with a brief discussion of upcoming Paper Club sessions, potentially focusing on function calling and involving researchers from Berkeley."
+  },
+  {
+    "objectID": "posts/validating-the-llm-validators/index.html#quotables",
+    "href": "posts/validating-the-llm-validators/index.html#quotables",
+    "title": "Validating The LLM Validators with Shreya",
+    "section": "",
+    "text": "“When the data and the anecdotes disagree, I tend to trust the anecdotes.” - Jeff Bezos quoted by Eugene\n\nEugene invokes Bezos to argue for prioritizing individual data samples over aggregated metrics.\n\n“They gave it a bad grade, not because the output is bad, but they wanted to be consistent with their previous grades.”\n\nThis exposes a flaw in human labeling: Anchoring bias. It questions the reliability of even meticulously labeled datasets, especially if the initial criteria were flawed."
   },
   {
     "objectID": "posts/writer-long-context-retrieval/index.html",
@@ -322,31 +308,45 @@
     "text": "The presentation is followed by a Q&A session where Umar addresses questions about the paper’s details, including:\n\nThe efficiency of chunked prefilling.\nThe cost-effectiveness of Writing in the Margins compared to traditional approaches.\nLatency implications.\nFuture research directions in long context modeling and attention mechanisms."
   },
   {
-    "objectID": "posts/langflow-visual-llm-tool/index.html",
-    "href": "posts/langflow-visual-llm-tool/index.html",
-    "title": "Langflow: A Visual LLM Tool",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html",
+    "href": "posts/ai-powered-ide-alternatives/index.html",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
-    "text": "A presentation about Langflow, an open-source tool for building and managing LLM-powered applications using a visual node-based interface.\n\n\n\n\nLangflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly.\n\n\n\n\nDuring the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks.\n\n\n\n\nSlono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
+    "text": "An exploration of IDEs, featuring Cursor, PearAI and NeoVim - AI-powered coding tools. The session covers comparative analysis, practical demonstrations, and open-source alternatives in the rapidly evolving landscape.\n\n\n\nPhlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively.\n\n\n\n\n\nPhlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator.\n\n\n\n\n\nThe conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precognition.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences.\n\n\n\n\n\nPhlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases.\n\n\n\n\n\nYikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   },
   {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
-    "href": "posts/langflow-visual-llm-tool/index.html#key-takeaways",
-    "title": "Langflow: A Visual LLM Tool",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#initial-setup-and-discussion",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
-    "text": "Langflow can be a powerful tool for rapid prototyping of LLM applications.\nVisual programming paradigms can be both helpful and limiting, requiring careful consideration of their application.\nAI coding assistants like Cursor can significantly accelerate codebase understanding and documentation.\nBuilding custom tools tailored to your specific needs and workflows can greatly enhance the effectiveness of AI in code development.\nWriting clear, informative Git commits and code comments is crucial for facilitating AI understanding.\nThe field of AI-powered code development is rapidly evolving, with new tools and techniques emerging constantly."
+    "text": "Phlo compares PearAI to Cursor, finding it similar but lacking features like Cursor’s “Composer” mode and advanced autocomplete.\nThe discussion touches on the slowing pace of model advancements and the focus shifting towards application layer innovations.\nThey express excitement about OpenAI’s new o1 model and Qwen2-VL for their reasoning capabilities and video understanding respectively."
   },
   {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#qa",
-    "href": "posts/langflow-visual-llm-tool/index.html#qa",
-    "title": "Langflow: A Visual LLM Tool",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#pearai-demo",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
-    "text": "During the Q&A, the audience asks about:\n\nThe use of Sonnet 3.5 for zero-shot PR messages: Slono confirms that he uses Sonnet extensively for tasks that require high-quality text generation and understanding of large contexts.\nThe future of Cursor as an AI IDE: Slono predicts that Cursor’s dominance may be challenged as other tools emerge with better diff models and context APIs.\nCursor’s custom models: It’s revealed that Cursor uses two custom models: Copilot++ for autocomplete and a diff model for applying larger changes.\nGenerating diffs with LLMs: Slono discusses the challenges of getting LLMs to generate applicable diffs, suggesting alternative approaches like using DSLs or fine-tuning smaller models for specific diff-related tasks."
+    "text": "Phlo demonstrates PearAI, highlighting its VS Code fork nature and features like a larger chat window button.\nHe attempts to use PearAI to translate a shell script into Python, comparing the experience to Cursor.\nThe discussion revolves around PearAI’s strengths and weaknesses compared to Cursor, with Cursor’s “Composer” mode and Cursor’s proprietary models emerging as a significant differentiator."
   },
   {
-    "objectID": "posts/langflow-visual-llm-tool/index.html#summary",
-    "href": "posts/langflow-visual-llm-tool/index.html#summary",
-    "title": "Langflow: A Visual LLM Tool",
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#neovim-and-composer-discussion",
+    "title": "AI Powered IDE Alternatives (Part 1)",
     "section": "",
-    "text": "Slono starts by introducing Langflow and its visual programming paradigm. He demonstrates basic Langflow functionalities such as creating a simple chatbot application with nodes for chat input, prompt templates, OpenAI API calls, and chat output. He highlights the benefits of using Langflow for quick prototyping and gathering runtime data.\nSlono then moves on to explore more complex applications, including chat memory and integration with vector stores like AstroDB. He points out the challenges of representing control flow and complex data interactions visually in Langflow. He contrasts Langflow with other visual programming environments like Max/MSP, advocating for well-defined paradigms within visual tools.\nThe presentation shifts to exploring Langflow’s source code using the Cursor AI coding assistant. Slono demonstrates how to use Cursor to generate an overview of the backend architecture and detailed documentation about components. He emphasizes the importance of providing targeted context to the AI model for better results. He advocates for writing clear, concise tutorials for each component as both documentation and prompts for future code generation.\nThe meeting is brought to a close as Slono showcases his workflow for utilizing AI in code development, which includes generating comprehensive pull requests using diff logs and custom-built tools. He emphasizes the importance of writing informative Git commits and tailoring tools to improve the AI’s understanding of the codebase. He encourages the audience to build their own tools for tasks like querying logs, database schemas, and other custom needs."
+    "text": "The conversation shifts to NeoVim as a customizable IDE alternative, emphasizing its keyboard-centric workflow and potential for speed.\nYikes recommends LazyVim and Kickstart for learning NeoVim and precognition.nvim for mastering keybindings.\nThey discuss the value of NeoVim in building a personalized development environment tailored to individual preferences."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "href": "posts/ai-powered-ide-alternatives/index.html#composer-demo",
+    "title": "AI Powered IDE Alternatives (Part 1)",
+    "section": "",
+    "text": "Phlo showcases Cursor’s “Composer” mode using a website redesign project. He demonstrates how to:\n\nUse “Control-K” for in-file code edits based on prompts.\nUse “Control-L” for chat-based interactions with the model to refine code.\nUse “Control-I” for multi-file edits or creating new files with Composer mode.\n\nThey discuss Composer’s ability to handle multi-file edits and the importance of providing context for larger code bases."
+  },
+  {
+    "objectID": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "href": "posts/ai-powered-ide-alternatives/index.html#open-source-alternatives-and-conclusion",
+    "title": "AI Powered IDE Alternatives (Part 1)",
+    "section": "",
+    "text": "Yikes recommends openv0.dev, and gptengineer.app as open-source alternatives to v0.dev for front-end development.\nThe participants discuss the benefits of the weekly AI In Action livestreams, with Yikes highlighting the value of learning from others’ experiences and discovering new tools.\nThe session concludes with plans for Yikes to demo Melty and NeoVim configurations in the following week.\n\nWe enjoyed exploring the evolving landscape of AI-powered IDEs, showcasing demos, sharing recommendations, and emphasizing the importance of community engagement in driving innovation."
   }
 ]
